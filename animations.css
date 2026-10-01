@@ -155,7 +155,7 @@
 .anim-ready .hero-visual{animation:heroFrame 620ms var(--e-mem) 220ms both}
 .anim-ready .hero-badge{animation:heroBadgePop 420ms var(--e-nay) 520ms both}
 .hero-visual a span:last-child{display:inline-block}
-.hero-visual a:hover span:last-child{animation:heroArrow 900ms ease-in-out infinite}
+.hero-visual a:hover span:last-child{animation:heroArrow 900ms ease-in-out 2}
 
 /* --- dãy danh mục --- */
 .anim-ready .category{animation:catPop 420ms var(--e-mem) both}
@@ -166,7 +166,7 @@
 .anim-ready .category:nth-child(5){animation-delay:.54s}
 .anim-ready .category:nth-child(6){animation-delay:.60s}
 .anim-ready .category:nth-child(n+7){animation-delay:.66s}
-.category:hover svg,.category:hover img{animation:catIconBob 820ms ease-in-out infinite}
+.category:hover svg,.category:hover img{animation:catIconBob 820ms ease-in-out 2}
 .category.active::after{animation:catUnderline 300ms var(--e-mem) both;transform-origin:left}
 .category.active{animation:catActiveGlow 2.6s ease-in-out infinite}
 .anim-ready .rail-controls{animation:railFadeR 420ms var(--e-mem) .5s both}
@@ -195,7 +195,9 @@
 .quan:hover .ten{animation:tenShift var(--t-vua) var(--e-mem) forwards}
 .anim-ready .card-location{animation:locFade var(--t-cham) linear .2s both}
 .anim-ready .card-note{animation:noteFade var(--t-cham) var(--e-mem) .26s both}
-.quan:hover .card-open{animation:openArrow 900ms ease-in-out infinite}
+/* Huu han: hieu ung vo han tren mot nut se lam no khong bao gio dung yen,
+   trinh duyet va nguoi dung deu kho bam trung. */
+.quan:hover .card-open{animation:openArrow 900ms ease-in-out 2}
 .plus{transition:transform var(--t-vua) var(--e-nay)}
 .quan:hover .plus{animation:plusSpin var(--t-vua) var(--e-nay) forwards,plusRing 800ms var(--e-ra)}
 .photo-missing{animation:missingFloat 4.2s ease-in-out infinite;background-size:200% 100%}
