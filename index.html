@@ -220,15 +220,13 @@ footer{padding-block:8px 36px; font-size:12.5px; color:var(--ink-faint); border-
       <option value="ten">Theo tên</option>
     </select>
     <button class="btn ghost" id="bRandom" type="button">Ăn gì đây?</button>
-    <button class="btn ghost" id="bCfg" type="button" aria-label="Đồng bộ và sao lưu">Đồng bộ</button>
-    <button class="btn primary" id="bAdd" type="button">+ Thêm quán</button>
   </div>
 </div>
 
 <div class="wrap">
   <p class="note" id="note" hidden></p>
   <div class="grid" id="grid"></div>
-  <footer>Dữ liệu nằm trong trình duyệt của anh. Bật đồng bộ Google để dùng chung giữa điện thoại và máy tính.</footer>
+  <footer>Danh sách quán ăn công khai. Kiểm tra thông tin có nhãn “cần xác minh” trước khi đến.</footer>
 </div>
 
 <script>
@@ -382,8 +380,6 @@ function veMotQuan(r){
       '<div class="gia">' + gia + '</div></div>' +
     '<div class="act">' +
       '<a class="btn sm" target="_blank" rel="noopener" href="' + esc(mapLink(r)) + '">Chỉ đường</a>' +
-      '<button class="btn sm" data-sua="' + esc(r.id) + '" type="button">Sửa</button>' +
-      '<button class="btn sm danger" data-xoa="' + esc(r.id) + '" type="button">Xoá</button>' +
     '</div></article>';
 }
 
@@ -397,7 +393,7 @@ function ve(){
         '<button class="btn" id="bClear" type="button">Bỏ hết bộ lọc</button></div>'
       : '<div class="state"><h2>Sổ còn trống</h2><p>Mỗi quán lưu được tên, khu vực, món phải gọi, ' +
         'giá một người và điểm anh chấm. Thêm quán đầu tiên, hoặc mở <b>Đồng bộ</b> để nạp file sao lưu cũ.</p>' +
-        '<button class="btn primary" id="bFirst" type="button">+ Thêm quán đầu tiên</button></div>';
+        '</div>';
     var c = $("#bClear");
     if (c) c.onclick = function(){ $("#q").value = ""; $("#fLoai").value = ""; $("#fTT").value = ""; ve(); };
     var f = $("#bFirst");
@@ -408,247 +404,18 @@ function ve(){
 }
 
 /* ---------------- Bảng nhập quán ---------------- */
-function moBang(id){
 
-  var r = id ? (items.filter(function(x){ return x.id === id; })[0] || {}) : {};
-  var optLoai = LOAI.map(function(x){
-    return '<option value="' + esc(x) + '"' + ((r.loai || "Việt") === x ? " selected" : "") + '>' + esc(x) + '</option>';
-  }).join("");
-  var optTag = TAGS.map(function(x, i){
-    var co = (r.tags || []).indexOf(x) !== -1;
-    return '<input type="checkbox" id="tg' + i + '" value="' + esc(x) + '"' + (co ? " checked" : "") + '>' +
-           '<label for="tg' + i + '">' + esc(x) + '</label>';
-  }).join("");
-
-  moVeil(
-    '<form class="sheet" id="form" novalidate>' +
-      '<h2>' + (id ? "Sửa quán" : "Thêm quán") + '</h2>' +
-      '<p class="hint">Chỉ tên quán là bắt buộc. Những ô còn lại điền sau cũng được.</p>' +
-      '<div class="fields">' +
-        '<label class="fld span2"><span>Tên quán *</span><input type="text" id="iTen" value="' + esc(r.ten || "") + '" required></label>' +
-        '<label class="fld"><span>Loại</span><select id="iLoai">' + optLoai + '</select></label>' +
-        '<label class="fld"><span>Trạng thái</span><select id="iTT">' +
-          '<option value="dadi"' + (r.trangThai !== "muonthu" ? " selected" : "") + '>Đã đi</option>' +
-          '<option value="muonthu"' + (r.trangThai === "muonthu" ? " selected" : "") + '>Muốn thử</option>' +
-        '</select></label>' +
-        '<label class="fld span2"><span>Địa chỉ</span><input type="text" id="iDC" value="' + esc(r.diaChi || "") + '" placeholder="196 Lê Thánh Tôn, P. Bến Thành"></label>' +
-        '<label class="fld"><span>Khu vực</span><input type="text" id="iKhu" value="' + esc(r.khu || "") + '" placeholder="Quận 1"></label>' +
-        '<label class="fld"><span>Giá một người (₫)</span><input type="number" id="iGia" min="0" step="1000" value="' + (Number(r.gia) > 0 ? Number(r.gia) : "") + '" placeholder="350000"></label>' +
-        '<label class="fld span2"><span>Món phải gọi</span><input type="text" id="iMon" value="' + esc(r.mon || "") + '" placeholder="Cơm lươn Unagi Don"></label>' +
-        '<label class="fld"><span>Điểm (0–10)</span><input type="number" id="iDiem" min="0" max="10" step="0.5" value="' + (typeof r.diem === "number" ? r.diem : "") + '" placeholder="chưa chấm"></label>' +
-        '<label class="fld"><span>Thông tin chắc chưa?</span><select id="iXM">' +
-          '<option value="0"' + (!r.canXacMinh ? " selected" : "") + '>Đã chắc</option>' +
-          '<option value="1"' + (r.canXacMinh ? " selected" : "") + '>Cần xác minh lại</option>' +
-        '</select></label>' +
-        '<div class="fld span2"><span style="display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:4px">Dấu riêng</span><div class="pick">' + optTag + '</div></div>' +
-        '<label class="fld span2"><span>Ghi chú</span><textarea id="iGhi" placeholder="Đi với ai, ngồi chỗ nào, lần sau gọi gì…">' + esc(r.ghiChu || "") + '</textarea></label>' +
-      '</div>' +
-      '<div class="sheet-act">' +
-        '<button class="btn primary" type="submit">Lưu vào sổ</button>' +
-        '<button class="btn" type="button" data-dong>Thôi</button>' +
-      '</div>' +
-    '</form>'
-  );
-  dangSua = id;
-  $("#iTen").focus();
-  $("#form").addEventListener("submit", luu);
-}
-
-function luu(e){
-  e.preventDefault();
-  var ten = $("#iTen").value.trim();
-  if (!ten){ $("#iTen").focus(); toast("Chưa có tên quán."); return; }
-  var cu = dangSua ? items.filter(function(x){ return x.id === dangSua; })[0] : null;
-  var diemRaw = $("#iDiem").value.trim(), giaRaw = $("#iGia").value.trim();
-  var body = {
-    id: dangSua || idMoi(),
-    ten: ten,
-    loai: $("#iLoai").value,
-    trangThai: $("#iTT").value,
-    diaChi: $("#iDC").value.trim(),
-    khu: $("#iKhu").value.trim(),
-    mon: $("#iMon").value.trim(),
-    ghiChu: $("#iGhi").value.trim(),
-    gia: giaRaw === "" ? null : Math.max(0, Number(giaRaw)),
-    diem: diemRaw === "" ? null : Math.max(0, Math.min(10, Number(diemRaw))),
-    canXacMinh: $("#iXM").value === "1",
-    tags: Array.prototype.slice.call(document.querySelectorAll(".pick input:checked")).map(function(i){ return i.value; }),
-    taoLuc: (cu && cu.taoLuc) || Date.now()
-  };
-  if (cu) items[items.indexOf(cu)] = body; else items.push(body);
-  var sua = !!dangSua;
-  dongVeil();
-  luuHet(sua ? "Đã sửa “" + ten + "”" : "Đã ghi “" + ten + "”");
-  if (!layUrl()) toast(sua ? "Đã sửa “" + ten + "”." : "Đã ghi “" + ten + "” vào sổ.");
-}
-
-/* ---------------- Xoá hai nhịp ---------------- */
-function xoa(id, btn){
-  if (choXoa !== id){
-    if (choXoa) ve();
-    choXoa = id; btn.textContent = "Chắc chưa? Xoá";
-    clearTimeout(hXoa);
-    hXoa = setTimeout(function(){ choXoa = null; ve(); }, 4000);
-    return;
-  }
-  clearTimeout(hXoa); choXoa = null;
-  var r = items.filter(function(x){ return x.id === id; })[0];
-  items = items.filter(function(x){ return x.id !== id; });
-  luuHet("Đã xoá “" + ((r && r.ten) || "quán") + "”");
-  if (!layUrl()) toast("Đã xoá “" + ((r && r.ten) || "quán") + "”.");
-}
-
-/* ---------------- Rút thăm ---------------- */
-function rutTham(){
-  var ds = locRa();
-  if (!ds.length){ toast("Không còn quán nào trong bộ lọc này."); return; }
-  var r = ds[Math.floor(Math.random() * ds.length)];
-  nhanManh = r.id; ve();
-  var el = document.getElementById("q-" + r.id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-  toast(r.ten + (r.mon ? " — gọi " + r.mon : ""));
-  clearTimeout(hHit);
-  hHit = setTimeout(function(){ nhanManh = null; ve(); }, 6000);
-}
-
-/* ---------------- Đồng bộ / sao lưu ---------------- */
-function moCaiDat(){
-  moVeil(
-    '<div class="sheet">' +
-      '<h2>Đồng bộ &amp; sao lưu</h2>' +
-      '<p class="hint">Chưa bật đồng bộ thì sổ chỉ nằm trong trình duyệt này — đổi máy là không thấy.</p>' +
-      '<h3>Đồng bộ qua Google</h3>' +
-      '<label class="fld"><span>Địa chỉ Apps Script (…/exec)</span>' +
-        '<input type="url" id="iUrl" placeholder="https://script.google.com/macros/s/…/exec" value="' + esc(layUrl()) + '"></label>' +
-      '<div class="sheet-act" style="margin-top:10px">' +
-        '<button class="btn primary" id="bLuuUrl" type="button">Lưu &amp; kéo về</button>' +
-        '<button class="btn" id="bDay" type="button">Đẩy sổ này lên</button>' +
-      '</div>' +
-      '<h3>Sao lưu ra file</h3>' +
-      '<div class="sheet-act" style="margin-top:0">' +
-        '<button class="btn" id="bXuat" type="button">Tải file .json về</button>' +
-        '<label class="btn" for="iFile" style="cursor:pointer">Nạp file .json</label>' +
-        '<input type="file" id="iFile" accept=".json,application/json" hidden>' +
-      '</div>' +
-      '<h3>Dán dữ liệu</h3>' +
-      '<textarea id="iDan" placeholder="Dán đoạn JSON vào đây rồi bấm Nạp"></textarea>' +
-      '<div class="sheet-act" style="margin-top:10px">' +
-        '<button class="btn" id="bDan" type="button">Nạp đoạn vừa dán</button>' +
-        '<button class="btn" type="button" data-dong>Đóng</button>' +
-      '</div>' +
-    '</div>'
-  );
-
-  $("#bLuuUrl").onclick = function(){
-    var u = $("#iUrl").value.trim();
-    datUrl(u);
-    if (!u){ toast("Đã tắt đồng bộ."); return; }
-    toast("Đang kéo dữ liệu về…");
-    keoVe().then(function(d){
-      var ds = (d && d.items) || [];
-      if (!Array.isArray(ds)) throw new Error("sai định dạng");
-      items = gopVao(ds);
-      ghiMay(); ve(); dongVeil();
-      toast("Đã kéo về " + ds.length + " quán.");
-    }).catch(function(){
-      toast("Không nối được — kiểm tra lại địa chỉ và quyền “Anyone”.");
-    });
-  };
-  $("#bDay").onclick = function(){
-    datUrl($("#iUrl").value.trim());
-    if (!layUrl()){ toast("Chưa có địa chỉ đồng bộ."); return; }
-    dayLen().then(function(){ toast("Đã đẩy " + items.length + " quán lên Google."); })
-            .catch(function(){ toast("Đẩy lên không được — kiểm tra lại địa chỉ."); });
-  };
-  $("#bXuat").onclick = function(){
-    var blob = new Blob([JSON.stringify({ items: items, capNhat: Date.now() }, null, 2)], { type: "application/json" });
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "so-quan-an.json";
-    document.body.appendChild(a); a.click();
-    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
-  };
-  $("#iFile").onchange = function(e){
-    var f = e.target.files && e.target.files[0];
-    if (!f) return;
-    var fr = new FileReader();
-    fr.onload = function(){ napJson(fr.result); };
-    fr.readAsText(f);
-  };
-  $("#bDan").onclick = function(){ napJson($("#iDan").value); };
-}
-
-function gopVao(ds){
-  var co = {};
-  items.forEach(function(r){ co[r.id] = r; });
-  ds.forEach(function(r){
-    if (!r || !r.ten) return;
-    if (!r.id) r.id = idMoi();
-    if (!r.taoLuc) r.taoLuc = Date.now();
-    co[r.id] = r;
-  });
-  return Object.keys(co).map(function(k){ return co[k]; });
-}
-function napJson(txt){
-  var d;
-  try { d = JSON.parse(txt); } catch (e) { toast("Đoạn vừa dán không phải JSON hợp lệ."); return; }
-  var ds = Array.isArray(d) ? d : (d && d.items);
-  if (!Array.isArray(ds)){ toast("Không tìm thấy danh sách quán trong file."); return; }
-  var truoc = items.length;
-  items = gopVao(ds);
-  dongVeil();
-  luuHet("Đã nạp " + (items.length - truoc) + " quán mới");
-  if (!layUrl()) toast("Đã nạp — sổ có " + items.length + " quán.");
-}
-
-/* ---------------- Lớp phủ dùng chung ---------------- */
-function moVeil(html){
-  dongVeil();
-  var v = document.createElement("div");
-  v.className = "veil"; v.id = "veil"; v.innerHTML = html;
-  document.body.appendChild(v);
-  v.addEventListener("mousedown", function(e){ if (e.target === v) dongVeil(); });
-  v.addEventListener("click", function(e){ if (e.target.closest("[data-dong]")) dongVeil(); });
-  document.addEventListener("keydown", phimEsc);
-}
-function phimEsc(e){ if (e.key === "Escape") dongVeil(); }
-function dongVeil(){
-  var v = $("#veil"); if (v) v.remove();
-  document.removeEventListener("keydown", phimEsc);
-  dangSua = null;
-}
-
-/* ---------------- Nối dây ---------------- */
 $("#fLoai").innerHTML += LOAI.map(function(x){ return '<option value="' + esc(x) + '">' + esc(x) + '</option>'; }).join("");
 ["q","fLoai","fTT","fSort"].forEach(function(id){
   $("#" + id).addEventListener("input", function(){ nhanManh = null; ve(); });
 });
-$("#bAdd").onclick = function(){ moBang(null); };
-$("#bRandom").onclick = rutTham;
-$("#bCfg").onclick = moCaiDat;
-$("#grid").addEventListener("click", function(e){
-  var s = e.target.closest("[data-sua]");
-  if (s){ moBang(s.getAttribute("data-sua")); return; }
-  var x = e.target.closest("[data-xoa]");
-  if (x){ xoa(x.getAttribute("data-xoa"), x); }
-});
-
-items = docMay();
+$("#bRandom").onclick = function(){
+  var ds=locRa(); if(!ds.length) return;
+  var r=ds[Math.floor(Math.random()*ds.length)]; nhanManh=r.id; ve();
+  document.getElementById("q-"+r.id).scrollIntoView({behavior:"smooth",block:"center"});
+};
+items = [{"ten": "An Của Saigon", "loai": "Hải sản", "trangThai": "muonthu", "diaChi": "196 Lê Thánh Tôn, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách"], "ghiChu": "Hải sản Việt, nước chấm nhà làm. Mở 11:00–22:00 mỗi ngày. Tầng 1 ngồi được 20–30 khách. Web: ancuasaigon.vn", "taoLuc": 1790840000000, "id": "an-cua-saigon"}, {"ten": "elgin", "loai": "Âu / Bistro", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Ba bảng Michelin 2023 · 2024 · 2025 treo ngoài cửa. Bếp mở, quầy rượu vang, cầu thang lên gác. Chưa ghi địa chỉ.", "taoLuc": 1790839000000, "id": "elgin"}, {"ten": "Bờm", "loai": "Việt", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Michelin 2023 · 2024 · 2025. Bảng trước cửa ghi mở 11:00–23:00, happy hour 16:00–19:00. Chưa ghi địa chỉ.", "taoLuc": 1790838000000, "id": "bom"}, {"ten": "Khap Khap Thai Bistro", "loai": "Thái", "trangThai": "dadi", "diaChi": "20 Nguyễn Thị Minh Khai / 46 Ter Võ Văn Tần / 52 Xuân Thủy", "khu": "TP.HCM", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Chuỗi ba chi nhánh, mở khoảng 10:00–22:00. Chưa rõ hôm đó ăn chi nhánh nào — đi lại thì ghi rõ số nhà.", "taoLuc": 1790837000000, "id": "khap-khap"}, {"ten": "Kohaku Sushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "Tầng 5, Vạn Hạnh Mall — 11 Sư Vạn Hạnh", "khu": "Quận 10", "mon": "Cơm lươn Unagi Don", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Đậu ô tô"], "ghiChu": "Kohaku có nhiều chi nhánh — Vạn Hạnh Mall mới là phỏng đoán, chưa chắc.", "taoLuc": 1790836000000, "id": "kohaku-sushi"}, {"ten": "Sushi Hokkaido Sachi — Thảo Điền", "loai": "Nhật", "trangThai": "dadi", "diaChi": "109 Võ Nguyên Giáp, P. An Khánh", "khu": "TP Thủ Đức", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách", "Đậu ô tô"], "ghiChu": "Chi nhánh Sachi Garden. Nhận ra nhờ bảng “Mực Bơi”, hồ hải sản và không gian tông đen.", "taoLuc": 1790835000000, "id": "sushi-hokkaido-sachi"}, {"ten": "Taco Del Sol", "loai": "Mexico", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Ngoài trời", "Nhóm đông"], "ghiChu": "Sân ngoài trời, tường cam, đài phun nước và tượng skeleton mariachi. Hợp ngồi tối, nhóm đông. Chưa ghi địa chỉ.", "taoLuc": 1790834000000, "id": "taco-del-sol"}, {"ten": "Pazzi", "loai": "Ý", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Steak + khoai chiên, sốt tiêu", "gia": null, "diem": null, "canXacMinh": true, "tags": [], "ghiChu": "Menu bìa giấy, lời chào tiếng Việt “Cảm ơn bạn đã ghé Pazzi”. Bàn bếp mặt đá. Chưa ghi địa chỉ.", "taoLuc": 1790833000000, "id": "pazzi"}, {"ten": "iSushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Sushi cá hồi cuộn sốt cay", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Menu à la carte bìa da. Chưa rõ chi nhánh.", "taoLuc": 1790832000000, "id": "isushi"}, {"ten": "Man Tang Gi (满堂記)", "loai": "Hoa", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Tiếp khách"], "ghiChu": "Quán Hoa, đèn lồng vải, ghế booth ngăn riêng — kín đáo, hợp tiếp khách. Chưa ghi địa chỉ.", "taoLuc": 1790831000000, "id": "man-tang-gi"}];
 ve();
-if (!layUrl()){
-  $("#note").innerHTML = 'Sổ đang lưu <b>trong trình duyệt này</b>. Mở <b>Đồng bộ</b> để dùng chung với điện thoại, hoặc để tải file sao lưu về.';
-  $("#note").hidden = false;
-} else {
-  keoVe().then(function(d){
-    var ds = (d && d.items) || [];
-    if (!Array.isArray(ds) || !ds.length) return;
-    items = gopVao(ds);
-    ghiMay(); ve();
-  }).catch(function(){
-    $("#note").textContent = "Chưa nối được Google — đang dùng bản lưu trong máy.";
-    $("#note").hidden = false;
-  });
-}
 </script>
 </body>
 </html>
