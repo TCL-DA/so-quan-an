@@ -102,6 +102,34 @@
     }).observe(oKetQua, { childList: true, subtree: true, characterData: true });
   }
 
+  /* --- 4b. Tiết kiệm khung hình -------------------------------
+     Hiệu ứng chạy ngoài tầm mắt vẫn ngốn CPU như thường. Thứ gì
+     cuộn khỏi màn hình thì cho dừng, cuộn tới thì chạy lại; tab bị
+     ẩn thì dừng tất. Mặc định không dừng gì, nên hỏng script là trang
+     trở về y như cũ chứ không mất hiệu ứng.                        */
+  if (window.IntersectionObserver) {
+    var canhChung = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        e.target.classList.toggle("ngoai-man", !e.isIntersecting);
+      });
+    }, { rootMargin: "180px 0px" });
+
+    function theoDoiTam() {
+      $$("section, .quan, .wheel-stage, .categories, footer, header.top, .announcement")
+        .forEach(function (el) {
+          if (el.dataset.dangCanh) return;
+          el.dataset.dangCanh = "1";
+          canhChung.observe(el);
+        });
+    }
+    theoDoiTam();
+    if (luoi) new MutationObserver(theoDoiTam).observe(luoi, { childList: true });
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    goc.classList.toggle("tab-an", document.hidden);
+  });
+
   /* --- 5. Bắn giấy màu khi chốt được quán --- */
   var mau = ["#b9112c", "#8c6116", "#1a6b4e", "#365e70", "#965025", "#74466c"];
   function banGiay() {
