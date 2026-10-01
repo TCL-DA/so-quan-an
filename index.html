@@ -313,8 +313,10 @@ function esc(s){
 function tien(n){ return Number(n) > 0 ? Number(n).toLocaleString("vi-VN") + " ₫" : ""; }
 function soDiem(n){ return (Math.round(Number(n) * 10) / 10).toString().replace(".", ","); }
 function mapLink(r){
-  return "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent(r.mapQ || [r.ten, r.diaChi, r.khu].filter(Boolean).join(" "));
+  return "https://maps.google.com/?q=" +
+    /* Chi gui ten + khu vuc. Nhoi ca dia chi vao day lam chuoi dai toi 250+
+     ky tu: Maps tra ket qua kem hon, va ma QR phinh to toi muc khong quet noi. */
+  encodeURIComponent(r.mapQ || [r.ten, r.khu].filter(Boolean).join(" "));
 }
 function idMoi(){ return "q" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
 

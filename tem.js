@@ -201,15 +201,33 @@
   /* Mã QR vẽ từng ô, nét gọn ở mọi cỡ. */
   function veQR(c, chuoi, x, y, canh) {
     if (typeof qrcode !== "function") return false;
-    var q;
-    try { q = qrcode(0, "M"); q.addData(chuoi); q.make(); } catch (e) { return false; }
-    var n = q.getModuleCount(), vien = 2, o = canh / (n + vien * 2);
+    /* Mức sửa lỗi càng cao thì mã càng nhiều ô, ô càng nhỏ càng khó quét.
+       Thử M trước; nếu ô nhỏ hơn 3px thì hạ xuống L cho ô to ra. */
+    function dung(muc) {
+      try { var z = qrcode(0, muc); z.addData(chuoi); z.make(); return z; } catch (e) { return null; }
+    }
+    function oPx(z) { return Math.floor(canh / (z.getModuleCount() + 8)); }
+    var q = dung("M");
+    if (!q) return false;
+    if (oPx(q) < 3) { var l = dung("L"); if (l && oPx(l) > oPx(q)) q = l; }
+    /* Ô phải là số pixel NGUYÊN. Trước đây làm tròn lên nên ô to hơn lưới,
+       các ô đè lên nhau và máy không đọc nổi mã. Viền trắng để đủ 4 ô
+       theo chuẩn QR, thiếu viền thì điện thoại cũng chịu. */
+    var n = q.getModuleCount(), vien = 4;
+    var o = Math.max(1, Math.floor(canh / (n + vien * 2)));
+    var thuc = o * (n + vien * 2);
+    var lech = Math.round((canh - thuc) / 2);
     c.save();
     c.fillStyle = M.giay; duongBo(c, x - 6, y - 6, canh + 12, canh + 12, 5); c.fill();
     c.strokeStyle = M.muc; c.lineWidth = 1.2; c.globalAlpha = .55; c.stroke(); c.globalAlpha = 1;
-    c.fillStyle = M.muc;
+    /* Nền trắng đặc dưới mã — giấy có vân, vân lẫn vào mã là hỏng. */
+    c.fillStyle = "#ffffff";
+    c.fillRect(x + lech, y + lech, thuc, thuc);
+    c.fillStyle = "#000000";
     for (var r = 0; r < n; r++) for (var col = 0; col < n; col++) {
-      if (q.isDark(r, col)) c.fillRect(x + (col + vien) * o, y + (r + vien) * o, Math.ceil(o), Math.ceil(o));
+      if (q.isDark(r, col)) {
+        c.fillRect(x + lech + (col + vien) * o, y + lech + (r + vien) * o, o, o);
+      }
     }
     c.restore();
     return true;
@@ -295,11 +313,11 @@
                  : (r.mon || "chưa ghi — lần tới nhớ ghi lại"), 60, y + 27, 400, 24, 2);
 
     /* QR + sê-ri */
-    var qx = W - 60 - 150, qy = H - 60 - 176;
-    var coQR = veQR(c, opt.link || "", qx, qy, 150);
+    var qx = W - 60 - 186, qy = H - 60 - 212;
+    var coQR = veQR(c, opt.link || "", qx, qy, 186);
     c.textAlign = "right"; c.fillStyle = M.mucNhat;
     c.font = "500 12px 'Be Vietnam Pro',sans-serif";
-    c.fillText(coQR ? "quét để mở bản đồ" : "", W - 60, qy + 176);
+    c.fillText(coQR ? "quét để mở bản đồ" : "", W - 60, qy + 212);
 
     c.textAlign = "left";
     c.fillStyle = M.muc; c.font = "700 15px 'Be Vietnam Pro',sans-serif";
