@@ -1,0 +1,80 @@
+/* ============================================================
+   tem.css — khung trình bày cho tem kết quả
+   Bản thân con tem do tem.js vẽ trên canvas; file này chỉ lo
+   chỗ đặt, cỡ hiển thị và ba cái nút.
+   ============================================================ */
+
+.tem-khung{
+  margin-top:22px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  align-items:flex-start;
+}
+
+/* Bóng đổ ăn theo hình răng cưa, nên đổ vào chính canvas bằng filter
+   chứ không dùng box-shadow (box-shadow sẽ ôm theo hình chữ nhật). */
+.tem-boc{
+  max-width:330px;
+  width:100%;
+  filter:drop-shadow(0 14px 30px rgba(16,21,27,.28));
+}
+.tem-canvas{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.tem-nut{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  max-width:330px;
+}
+.tem-b{
+  flex:1 1 auto;
+  font-size:13.5px;
+  padding:8px 12px;
+}
+.tem-b[disabled]{opacity:.5; cursor:progress}
+
+.tem-bao{
+  margin:0;
+  min-height:1.2em;
+  font-size:13px;
+  color:var(--ink-soft,#5a6676);
+}
+
+/* Trên màn rộng: tem đứng cạnh phần chữ cho đỡ trống bên phải. */
+@media (min-width:900px){
+  .tem-khung{
+    flex-direction:row;
+    align-items:flex-start;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .tem-boc{max-width:290px}
+  .tem-nut{
+    flex-direction:column;
+    align-self:stretch;
+    max-width:230px;
+  }
+  .tem-b{flex:0 0 auto}
+  .tem-bao{flex-basis:100%}
+}
+
+/* Tem vừa in xong: hạ xuống như vừa được đóng dấu. */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes temDong{
+    0%{opacity:0; transform:translateY(-16px) rotate(-3deg) scale(1.06)}
+    55%{opacity:1; transform:translateY(3px) rotate(.6deg) scale(.995)}
+    100%{opacity:1; transform:none}
+  }
+  @keyframes temNutHien{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+  .tem-vao .tem-boc{animation:temDong 560ms cubic-bezier(.22,.61,.36,1)}
+  .tem-vao .tem-b{animation:temNutHien 320ms cubic-bezier(.22,.61,.36,1) both}
+  .tem-vao .tem-b:nth-child(2){animation-delay:.07s}
+  .tem-vao .tem-b:nth-child(3){animation-delay:.14s}
+  .tem-b:hover{transform:translateY(-1px)}
+  .tem-b{transition:transform 140ms cubic-bezier(.22,.61,.36,1)}
+}
