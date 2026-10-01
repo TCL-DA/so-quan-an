@@ -204,13 +204,26 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
 .features{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:22px;padding:8px 4px 20px;margin:0 -4px;scrollbar-width:none}.features::-webkit-scrollbar,.grid::-webkit-scrollbar{display:none}.feature{flex:0 0 380px;height:480px;scroll-snap-align:start}.feature-copy{padding:32px}.feature h3{font-size:33px}.rail-controls{display:flex;justify-content:flex-end;gap:12px;margin:14px 0 52px}.rail-arrow{border:0;border-radius:50%;background:#e5e5e9;color:#333336;width:38px;height:38px;font-size:29px;line-height:1;display:grid;place-items:center}.rail-arrow:hover:not(:disabled){background:#d5d5db}.rail-arrow:disabled{opacity:.35;cursor:default}.grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:22px;margin:0 -4px;padding:6px 4px 20px;scrollbar-width:none;align-items:stretch}.quan{flex:0 0 355px;scroll-snap-align:start;padding:0;min-height:370px;display:block}.card-open{display:flex;flex-direction:column;align-items:flex-start;text-align:left;border:0;background:transparent;color:inherit;padding:30px;width:100%;height:100%;border-radius:22px;cursor:pointer;gap:18px}.card-open:focus-visible{outline:3px solid #0071e3;outline-offset:-4px}.card-eyebrow{font-size:11px;letter-spacing:.6px;color:#6e6e73;font-weight:650}.card-open .ten{font-size:30px;min-height:0;margin:0;line-height:1.12}.card-location{font-size:13px;color:#6e6e73;line-height:1.5}.card-note{font-size:15px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card-bottom{margin-top:auto;padding-top:15px;display:flex;align-items:center;justify-content:space-between;width:100%;font-size:11px;color:#6e6e73;gap:10px}.plus{width:32px;height:32px;border-radius:50%;background:#f0f0f3;font-size:26px;color:#333;display:grid;place-items:center;flex:none}.state{min-width:100%}.result-summary{font-size:12px;color:#6e6e73;margin:0 0 14px}dialog{border:0;padding:65px 55px 48px;width:min(760px,calc(100% - 40px));max-height:90dvh;border-radius:26px;color:#1d1d1f;box-shadow:0 24px 100px #0004}dialog::backdrop{background:#0006;backdrop-filter:blur(8px)}.dialog-close{position:absolute;right:18px;top:18px;width:36px;height:36px;border:0;border-radius:50%;background:#ededf0;color:#555;font-size:25px;display:grid;place-items:center}#detailTitle{font-size:40px;line-height:1.13;letter-spacing:-1.4px;margin:12px 0 28px}.detail-warning{font-size:13px;background:#faf3e7;color:#765017;padding:14px 17px;border-radius:12px}.detail-facts{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;margin:26px 0}.detail-facts h3,.detail-notes h3{font-size:13px;margin:0 0 7px}.detail-facts p,.detail-notes p{font-size:15px;color:#6e6e73;line-height:1.65;margin:0}.detail-notes{border-top:1px solid #e5e5e9;padding-top:24px;margin-bottom:22px}.detail-map{display:inline-block;background:#0071e3;color:white;text-decoration:none;border-radius:24px;padding:13px 23px;margin-top:30px;font-size:14px}#grid:focus-visible,#inspirationRail:focus-visible{outline:2px solid #0071e3;outline-offset:5px}
 @media(max-width:700px){.features{margin:0 -22px;padding:8px 22px 18px;scroll-padding-inline:22px}.feature{flex-basis:86%;height:440px}.feature h3{font-size:31px}.grid{margin:0 -22px;padding:6px 22px 20px;scroll-padding-inline:22px}.quan{flex-basis:87%;min-height:360px}.card-open{padding:27px}.rail-controls{margin-bottom:38px}.card-open .ten{font-size:28px}dialog{padding:62px 26px 32px;width:calc(100% - 22px);max-height:92dvh;border-radius:22px}#detailTitle{font-size:32px}.detail-facts{grid-template-columns:1fr;gap:22px}.detail-map{display:block;text-align:center}.feature-copy{padding:28px}}
 
+
+/* Thẻ ảnh thật và vòng quay trên nền xanh đậm tạo điểm nhấn cho trang. */
+#wheelSection{scroll-margin-top:30px}.wheel-section{background:#13242b;color:#fff;border-radius:30px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:8px 0 66px;overflow:hidden;position:relative}.wheel-story .eyebrow{color:#e9b68f;letter-spacing:2px}.wheel-story h2{font-size:43px;line-height:1.14;letter-spacing:-1.5px;margin:14px 0 20px}.wheel-story h2 span{color:#f3ba90}.wheel-intro{max-width:400px;color:#bfd0d4;font-size:15px;line-height:1.7}.wheel-modes{display:inline-flex;border-radius:30px;padding:4px;background:#ffffff12;margin:12px 0}.wheel-modes button{border:0;border-radius:26px;padding:10px 19px;background:transparent;color:#bfd0d4;font-size:13px}.wheel-modes button[aria-pressed=true]{background:#f5e6d7;color:#332a24}.wheel-count{font-size:12px;color:#bfd0d4}.wheel-options{font-size:13px;margin:16px 0}.wheel-options summary{cursor:pointer;color:#e4d5c4}.wheel-options>div{display:grid;gap:10px;max-height:170px;overflow:auto;margin-top:15px;padding-right:10px}.wheel-options label{display:flex;gap:9px;align-items:center;color:#cfdbde}.wheel-options input{accent-color:#f0bc92;width:17px;height:17px}.wheel-result{border-top:1px solid #ffffff26;padding-top:23px;margin-top:26px;min-height:133px}.result-kicker{font-size:10px;letter-spacing:1.6px;color:#d8b99d}.wheel-result>p{font-size:17px;color:#e1e8e9}.wheel-result h3{font-size:27px;letter-spacing:-.7px;margin:10px 0}.wheel-detail{border:0;border-radius:22px;background:#f2ba91;padding:12px 18px;color:#30251e;font-size:13px;margin-top:5px}.wheel-stage{position:relative;min-width:0;text-align:center}.wheel-halo{position:relative;max-width:440px;margin:auto;border-radius:50%;background:#ffffff0b;padding:10px;box-shadow:0 0 0 1px #ffffff18,0 28px 60px #0005}.wheel-disc{width:100%;aspect-ratio:1;will-change:transform}.wheel-disc svg{width:100%;height:100%;display:block}.wheel-pointer{position:absolute;z-index:3;left:50%;top:2px;transform:translateX(-50%);width:28px;height:35px;background:#f5dfb8;clip-path:polygon(0 0,100% 0,50% 100%);filter:drop-shadow(0 3px 2px #0005)}.spin-button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:7px solid #fff8;border-radius:50%;width:88px;height:88px;background:#fff5e7;color:#352e29;box-shadow:0 5px 20px #0005;font-size:13px;font-weight:750;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}.spin-button span{font-size:25px;line-height:1}.spin-button:disabled{cursor:default;color:#8c8277}.wheel-instruction{font-size:12px;color:#b9cbd0;margin-top:24px;min-height:35px}.celebration{position:absolute;inset:0;pointer-events:none;overflow:hidden}.celebration i{position:absolute;top:10%;left:var(--x);width:8px;height:13px;animation:confetti 1.6s var(--delay) ease-out both}@keyframes confetti{from{opacity:1;transform:translateY(-20px) rotate(0)}to{opacity:0;transform:translateY(350px) rotate(var(--r))}}
+.quan{flex-basis:355px;min-height:475px}.card-open{padding:0 26px 25px;gap:15px;overflow:hidden}.restaurant-photo{display:block;position:relative;width:calc(100% + 52px);margin:0 -26px 8px;height:220px;flex:none;overflow:hidden;background:#e5e5e9}.restaurant-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.card-open:hover .restaurant-photo img{transform:scale(1.045)}.restaurant-photo>span{position:absolute;bottom:10px;left:15px;font-size:9px;color:white;background:#0009;padding:4px 8px;border-radius:8px}.photo-missing{width:calc(100% + 52px);height:160px;margin:0 -26px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#ebe8e0;gap:12px;color:#706452}.photo-missing>span{font-size:30px;font-weight:650}.photo-missing small{font-size:11px}.card-note{-webkit-line-clamp:2;font-size:13px;color:#6e6e73}.card-open .ten{font-size:27px}.restaurant-gallery{display:flex;gap:12px;overflow:auto;scroll-snap-type:x mandatory;margin:0 -10px;padding:0 10px 10px}.restaurant-gallery img{width:100%;height:280px;object-fit:cover;border-radius:16px;flex:none;scroll-snap-align:center}.photo-source{font-size:11px;color:#6e6e73;margin-bottom:24px}.photo-source a{color:#0066cc}.feature.fresh img,.feature.dinner img,.feature.pizza img{object-position:center}.feature-copy{padding:30px}.feature h3{font-size:30px}
+@media(max-width:900px){.wheel-section{padding:30px;gap:24px}.wheel-story h2{font-size:34px}.spin-button{width:74px;height:74px;border-width:5px}}
+@media(max-width:700px){.wheel-section{grid-template-columns:1fr;padding:30px 22px;margin:6px -8px 45px;border-radius:24px;gap:22px}.wheel-story h2{font-size:36px}.wheel-intro{font-size:14px}.wheel-result{min-height:100px}.wheel-halo{max-width:340px}.wheel-stage{grid-row:2}.wheel-count{line-height:1.6}.wheel-options>div{max-height:145px}.quan{flex-basis:87%;min-height:470px}.restaurant-photo{height:210px}.restaurant-gallery img{height:220px}.card-open .ten{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.celebration{display:none}}
+
+
+.hero-visual{position:relative;width:330px;height:275px;flex:none;transform:rotate(3deg);margin:0 10px 0 20px}.hero-visual>img{width:100%;height:100%;object-fit:cover;border-radius:24px;box-shadow:0 16px 35px #0002}.hero-visual>a{position:absolute;bottom:-17px;left:-22px;display:flex;flex-direction:column;gap:5px;padding:18px 22px;background:#fff;border:1px solid #eee;border-radius:17px;transform:rotate(-3deg);box-shadow:0 8px 30px #0001;text-decoration:none;font-size:12px}.hero-visual strong{font-size:19px;color:#1d1d1f}.hero-badge{color:#856148;font-size:9px;letter-spacing:1.2px}.hero-visual>a:focus-visible{outline:3px solid #0071e3}
+@media(min-width:701px) and (max-width:1050px){.hero-visual{width:240px;height:225px;margin-left:0}.mark{font-size:44px}.hero-visual>a{left:-10px}}
+@media(max-width:700px){header.top{display:block}.hero-visual{width:100%;height:190px;margin:30px 0 15px;transform:none}.hero-visual>img{border-radius:18px;object-position:50% 55%}.hero-visual>a{left:12px;bottom:12px;padding:13px 17px;transform:none;border:0;border-radius:13px;background:#fffc;backdrop-filter:blur(12px)}.hero-visual strong{font-size:17px}.hero-badge{font-size:8px}.categories{padding-top:10px}}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#discover">Đến danh sách quán</a>
 <nav class="navigation" aria-label="Điều hướng chính"><div class="wrap nav-inner">
 <a class="brand" href="#">sổ quán<span>●</span></a>
-<div class="nav-links"><a href="#inspiration">Khám phá</a><a href="#discover">Tất cả quán</a><a href="#about">Về cuốn sổ</a></div>
+<div class="nav-links"><a href="#inspiration">Khám phá</a><a href="#discover">Tất cả quán</a><a href="#wheelSection">Vòng quay</a></div>
 <a class="nav-city" href="#discover">Sài Gòn <span aria-hidden="true">↗</span></a>
 </div></nav>
 <div class="announcement">Một cuốn sổ nhỏ. Nhiều cuộc hẹn ngon. <a href="#discover">Tìm quán hôm nay <span aria-hidden="true">›</span></a></div>
@@ -220,7 +233,7 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
 <header class="top"><div><p class="eyebrow">SỔ QUÁN ĂN SÀI GÒN</p>
 <h1 class="mark">Đi ăn thôi.<br><em>Mỗi cuộc hẹn,<br class="mobile-break"> một vị mới.</em></h1>
 <p class="sub">Những quán đã ghé. Những nơi muốn thử.<br>Cất lại ở đây, cho lần hẹn tiếp theo.</p></div>
-<div class="hero-aside"><span class="aside-icon" aria-hidden="true">↗</span><div>Chưa biết ăn gì?<br><a href="#discover" id="heroRandom">Để sổ chọn giúp bạn</a></div></div>
+<div class="hero-visual"><img src="assets/restaurants/elgin.webp" alt="Bàn ăn tại elgin, ảnh từ website nhà hàng" width="420" height="300"><a href="#wheelSection" id="heroRandom"><span class="hero-badge">MỘT CHÚT NGẪU HỨNG</span><strong>Chưa biết ăn gì?</strong><span>Thử vòng quay hôm nay ↗</span></a></div>
 </header>
 <div class="categories" aria-label="Khám phá theo ẩm thực">
 <button data-category="" class="category active" aria-pressed="true"><span aria-hidden="true">✳</span>Tất cả</button>
@@ -238,6 +251,13 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
 <a class="feature dinner" href="#discover" data-preset="dadi"><img src="assets/dinner.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>HẸN NHAU ĐI ĂN</p><h3>Quán quen.<br>Câu chuyện mới.</h3><span>Xem những nơi đã ghé ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
 <a class="feature pizza" href="#discover" data-food="Ý"><img src="assets/pizza.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>MỘT CHÚT NƯỚC Ý</p><h3>Thêm một miếng.<br>Thêm một niềm vui.</h3><span>Khám phá món Ý ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
 </div><div class="rail-controls"><button class="rail-arrow" data-rail="inspirationRail" data-direction="-1" aria-label="Cảm hứng trước">‹</button><button class="rail-arrow" data-rail="inspirationRail" data-direction="1" aria-label="Cảm hứng tiếp theo">›</button></div></section>
+<section id="wheelSection" class="wheel-section" aria-labelledby="wheelTitle">
+<div class="wheel-story"><p class="eyebrow">BỚT NGHĨ. THÊM NGON.</p><h2 id="wheelTitle">Hôm nay ăn gì?<br><span>Để vòng quay chọn.</span></h2><p class="wheel-intro">Một vòng quay, một cuộc hẹn. Chọn quán hoặc món đã ghi trong sổ, rồi để chút ngẫu hứng dẫn đường.</p>
+<div class="wheel-modes" aria-label="Chọn kiểu vòng quay"><button data-wheel-mode="restaurants" aria-pressed="true">Chọn quán</button><button data-wheel-mode="dishes" aria-pressed="false">Chọn món</button></div>
+<p id="wheelCount" class="wheel-count"></p><details class="wheel-options"><summary>Tuỳ chọn trong vòng quay</summary><div id="wheelChoices"></div></details>
+<div id="wheelResult" class="wheel-result" role="status" aria-live="polite"><span class="result-kicker">CUỘC HẸN TIẾP THEO</span><p>Sẵn sàng cho một bất ngờ?</p></div>
+</div><div class="wheel-stage"><div class="wheel-halo"><span class="wheel-pointer" aria-hidden="true"></span><div id="wheelDisc" class="wheel-disc" aria-hidden="true"></div><button id="spinButton" class="spin-button" aria-label="Quay để chọn">QUAY<span>↻</span></button></div><p class="wheel-instruction" id="wheelInstruction">Chạm vào giữa để bắt đầu</p><div class="celebration" aria-hidden="true"></div></div>
+</section>
 <section id="discover" aria-labelledby="list-title"><h2 class="section-title" id="list-title">Những địa chỉ đáng nhớ. <span>Chọn theo cách của bạn.</span></h2><p class="tally" id="tally" aria-live="polite"></p></section>
 </div>
 <div class="bar">
@@ -268,6 +288,7 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
   </div></main><footer id="about"><div class="footer-brand">sổ quán<span>●</span></div><p>Một cuốn sổ dành cho những cuộc hẹn ăn uống ở Sài Gòn.</p><p>Danh sách quán ăn công khai. Kiểm tra thông tin có nhãn “cần xác minh” trước khi đến.</p><p class="credits">Ảnh minh hoạ: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p></footer>
 
 <dialog id="restaurantDialog" aria-labelledby="detailTitle"><button class="dialog-close" aria-label="Đóng chi tiết">×</button><div id="detailBody"></div></dialog>
+<script src="photos.js"></script>
 <script>
 /* ============================================================
    Sổ quán ăn Sài Gòn — trang tĩnh, chạy được trên GitHub Pages.
@@ -397,7 +418,7 @@ function veMotQuan(r){
   var noi=[r.diaChi,r.khu].filter(Boolean).join(' · ');
   return '<article class="quan'+(nhanManh===r.id?' hit':'')+'" id="q-'+esc(r.id)+'">'+
     '<button class="card-open" data-detail="'+esc(r.id)+'" aria-label="Xem chi tiết '+esc(r.ten)+'">'+
-    '<span class="card-eyebrow">'+esc(r.loai)+' · '+(r.trangThai==='dadi'?'Đã ghé':'Muốn thử')+'</span>'+
+    photoCard(r)+'<span class="card-eyebrow">'+esc(r.loai)+' · '+(r.trangThai==='dadi'?'Đã ghé':'Muốn thử')+'</span>'+
     '<h3 class="ten">'+esc(r.ten)+'</h3>'+
     '<span class="card-location">'+esc(noi||'Địa chỉ đang cập nhật')+'</span>'+
     '<span class="card-note">'+esc(r.mon||r.ghiChu||'Một địa chỉ cho cuộc hẹn tiếp theo.')+'</span>'+
@@ -406,6 +427,7 @@ function veMotQuan(r){
 
 function ve(){
   syncCategories();
+  if(typeof wheelReady!=="undefined" && wheelReady) refreshWheel();
   veTally();
   var g = $("#grid");
   var ds = locRa();
@@ -433,12 +455,9 @@ $("#fLoai").innerHTML += LOAI.map(function(x){ return '<option value="' + esc(x)
 ["q","fLoai","fTT","fSort"].forEach(function(id){
   $("#" + id).addEventListener("input", function(){ nhanManh = null; ve(); });
 });
-$("#bRandom").onclick = function(){
-  var ds=locRa(); if(!ds.length) return;
-  var r=ds[Math.floor(Math.random()*ds.length)]; nhanManh=r.id; ve();
-  openRestaurant(r.id, $("#bRandom"));
-};
-items = [{"ten": "An Của Saigon", "loai": "Hải sản", "trangThai": "muonthu", "diaChi": "196 Lê Thánh Tôn, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách"], "ghiChu": "Hải sản Việt, nước chấm nhà làm. Mở 11:00–22:00 mỗi ngày. Tầng 1 ngồi được 20–30 khách. Web: ancuasaigon.vn", "taoLuc": 1790840000000, "id": "an-cua-saigon"}, {"ten": "elgin", "loai": "Âu / Bistro", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Ba bảng Michelin 2023 · 2024 · 2025 treo ngoài cửa. Bếp mở, quầy rượu vang, cầu thang lên gác. Chưa ghi địa chỉ.", "taoLuc": 1790839000000, "id": "elgin"}, {"ten": "Bờm", "loai": "Việt", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Michelin 2023 · 2024 · 2025. Bảng trước cửa ghi mở 11:00–23:00, happy hour 16:00–19:00. Chưa ghi địa chỉ.", "taoLuc": 1790838000000, "id": "bom"}, {"ten": "Khap Khap Thai Bistro", "loai": "Thái", "trangThai": "dadi", "diaChi": "20 Nguyễn Thị Minh Khai / 46 Ter Võ Văn Tần / 52 Xuân Thủy", "khu": "TP.HCM", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Chuỗi ba chi nhánh, mở khoảng 10:00–22:00. Chưa rõ hôm đó ăn chi nhánh nào — đi lại thì ghi rõ số nhà.", "taoLuc": 1790837000000, "id": "khap-khap"}, {"ten": "Kohaku Sushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "Tầng 5, Vạn Hạnh Mall — 11 Sư Vạn Hạnh", "khu": "Quận 10", "mon": "Cơm lươn Unagi Don", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Đậu ô tô"], "ghiChu": "Kohaku có nhiều chi nhánh — Vạn Hạnh Mall mới là phỏng đoán, chưa chắc.", "taoLuc": 1790836000000, "id": "kohaku-sushi"}, {"ten": "Sushi Hokkaido Sachi — Thảo Điền", "loai": "Nhật", "trangThai": "dadi", "diaChi": "109 Võ Nguyên Giáp, P. An Khánh", "khu": "TP Thủ Đức", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách", "Đậu ô tô"], "ghiChu": "Chi nhánh Sachi Garden. Nhận ra nhờ bảng “Mực Bơi”, hồ hải sản và không gian tông đen.", "taoLuc": 1790835000000, "id": "sushi-hokkaido-sachi"}, {"ten": "Taco Del Sol", "loai": "Mexico", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Ngoài trời", "Nhóm đông"], "ghiChu": "Sân ngoài trời, tường cam, đài phun nước và tượng skeleton mariachi. Hợp ngồi tối, nhóm đông. Chưa ghi địa chỉ.", "taoLuc": 1790834000000, "id": "taco-del-sol"}, {"ten": "Pazzi", "loai": "Ý", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Steak + khoai chiên, sốt tiêu", "gia": null, "diem": null, "canXacMinh": true, "tags": [], "ghiChu": "Menu bìa giấy, lời chào tiếng Việt “Cảm ơn bạn đã ghé Pazzi”. Bàn bếp mặt đá. Chưa ghi địa chỉ.", "taoLuc": 1790833000000, "id": "pazzi"}, {"ten": "iSushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Sushi cá hồi cuộn sốt cay", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Menu à la carte bìa da. Chưa rõ chi nhánh.", "taoLuc": 1790832000000, "id": "isushi"}, {"ten": "Man Tang Gi (满堂記)", "loai": "Hoa", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Tiếp khách"], "ghiChu": "Quán Hoa, đèn lồng vải, ghế booth ngăn riêng — kín đáo, hợp tiếp khách. Chưa ghi địa chỉ.", "taoLuc": 1790831000000, "id": "man-tang-gi"}];
+$("#bRandom").onclick = function(){document.getElementById('wheelSection').scrollIntoView({behavior:motion()});$('#spinButton').focus({preventScroll:true});};
+
+items = [{"id": "an-cua-saigon", "ten": "An Của Saigon", "loai": "Hải sản", "trangThai": "muonthu", "diaChi": "196 Lê Thánh Tôn, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách"], "taoLuc": 1790840000000, "ghiChu": "Hải sản Việt, nước chấm nhà làm. Mở 11:00–22:00 mỗi ngày. Tầng 1 ngồi được 20–30 khách. Web: ancuasaigon.vn"}, {"id": "elgin", "ten": "elgin", "loai": "Âu / Bistro", "trangThai": "dadi", "diaChi": "27 Mạc Đĩnh Chi, P. Đa Kao", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Michelin", "Tiếp khách"], "taoLuc": 1790839000000, "ghiChu": "Casual dining kèm wine bar — món fusion hiện đại và vang tự nhiên. Michelin Guide 2023 · 2024 · 2025, ba bảng treo ngoài cửa. Địa chỉ lấy từ web chính thức elginsgn.com."}, {"id": "bom", "ten": "Bờm", "loai": "Việt", "trangThai": "dadi", "diaChi": "24 Nguyễn Thị Nghĩa, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": 800000, "diem": null, "canXacMinh": false, "tags": ["Michelin", "Tiếp khách"], "taoLuc": 1790838000000, "ghiChu": "Vietnamese Contemporary, Michelin Selected 2023 · 2024 · 2025. Michelin Guide ghi mở 10:30–23:00, khoảng 800.000 ₫/người; bảng trước cửa còn ghi happy hour 16:00–19:00."}, {"id": "khap-khap", "ten": "Khap Khap Thai Bistro", "loai": "Thái", "trangThai": "dadi", "diaChi": "20 Nguyễn Thị Minh Khai · 46 Ter Võ Văn Tần · 52 Xuân Thuỷ", "khu": "TP.HCM", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "taoLuc": 1790837000000, "ghiChu": "Chuỗi của NMD & Partners, ba chi nhánh đều mở 10:00–22:00: 20 Nguyễn Thị Minh Khai (P. Sài Gòn), 46 Ter Võ Văn Tần (P. Xuân Hoà), 52 Xuân Thuỷ (P. An Khánh). Chưa rõ hôm đó đi chi nhánh nào — đi lại thì ghi số nhà. Web: khapkhap.vn"}, {"id": "kohaku-sushi", "ten": "Kohaku Sushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "Tầng 5.15, Vạn Hạnh Mall — 11 Sư Vạn Hạnh", "khu": "Quận 10", "mon": "Cơm lươn Unagi Don", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Đậu ô tô"], "taoLuc": 1790836000000, "ghiChu": "Chi nhánh Vạn Hạnh Mall có thật, nằm tầng 5, mở 10:00–22:00, tầm 200–600 nghìn/người. Nhưng Kohaku nhiều chi nhánh nên vẫn chưa chắc hôm đó ăn ở đây."}, {"id": "sushi-hokkaido-sachi", "ten": "Sushi Hokkaido Sachi — Thảo Điền", "loai": "Nhật", "trangThai": "dadi", "diaChi": "Sachi Garden — 109 Võ Nguyên Giáp, P. An Khánh", "khu": "TP Thủ Đức", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách", "Đậu ô tô"], "taoLuc": 1790835000000, "ghiChu": "Mở 10:30–23:00, gọi món cuối 22:15 (đọc được trên bảng ngay cửa quán). ĐT 028 3620 2993. Trần origami, bếp mở, hồ hải sản — khớp bảng “Mực Bơi” trong ảnh. Web: sushihokkaidosachi.com.vn"}, {"id": "taco-del-sol", "ten": "Taco Del Sol", "loai": "Mexico", "trangThai": "dadi", "diaChi": "Tầng 4–5, 110–112 Lý Tự Trọng, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Ngoài trời", "Nhóm đông"], "taoLuc": 1790834000000, "ghiChu": "Sân ngoài trời, tường cam, đài phun nước và tượng mariachi — khớp khu tầng 4–5 Lý Tự Trọng. Mở 11:00–23:00, gửi xe 34A Thủ Khoa Huân. Còn một chi nhánh Quận 7 nên chưa dám chốt hẳn. Web: tacodelsol.vn"}, {"id": "pazzi", "ten": "Pazzi", "loai": "Ý", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Steak + khoai chiên, sốt tiêu", "gia": null, "diem": null, "canXacMinh": true, "tags": [], "taoLuc": 1790833000000, "ghiChu": "Ảnh steak kèm khoai chiên trên web Pazzi trùng đúng đĩa anh chụp. Hai chi nhánh: 7A Nguyễn Thành Ý (Q.1) và RR6 Hồng Lĩnh, Cư xá Bắc Hải (Q.10) — chưa rõ chi nhánh nào. Web: pazzi.vn"}, {"id": "isushi", "ten": "iSushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Sushi cá hồi cuộn sốt cay", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "taoLuc": 1790832000000, "ghiChu": "Chuỗi buffet Nhật, nhiều chi nhánh ở TP.HCM: 112 Cao Thắng (Q.3), 191 Phan Xích Long (Phú Nhuận), 18 Trường Sơn (Tân Bình), AEON Bình Tân… Chưa rõ chi nhánh nào. Web: isushi.com.vn"}, {"id": "man-tang-gi", "ten": "Man Tang Gi (满堂記)", "loai": "Hoa", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Tiếp khách"], "taoLuc": 1790831000000, "ghiChu": "Chưa chốt được danh tính nên không gắn địa chỉ: biển trong ảnh là 满堂記 (MAN TANG GI), còn chuỗi lẩu Đài Loan ở TP.HCM tên Man Tang Guo 满堂鍋 (169–171 Phan Xích Long, Phú Nhuận). Khác nhau chữ cuối — cần anh xác nhận lại."}];
 ve();
 function syncCategories(){
   document.querySelectorAll('[data-category]').forEach(function(b){
@@ -454,7 +473,7 @@ $("#fLoai").addEventListener('change',syncCategories);
 document.querySelectorAll('[data-preset], [data-food]').forEach(function(a){a.onclick=function(){
   $("#q").value=''; $("#fLoai").value=a.dataset.food||''; $("#fTT").value=a.dataset.preset||'';nhanManh=null;syncCategories();ve();
 };});
-$("#heroRandom").onclick=function(e){e.preventDefault();$("#q").value='';$("#fLoai").value='';$("#fTT").value='';syncCategories();$("#bRandom").onclick();};
+$("#heroRandom").onclick=function(e){e.preventDefault();document.getElementById("wheelSection").scrollIntoView({behavior:motion()});};
 
 /* Dãy thẻ dùng cuộn tự nhiên; chi tiết mở bằng dialog có quản lý tiêu điểm. */
 function motion(){return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';}
@@ -481,7 +500,7 @@ function openRestaurant(id,trigger){
  lastTrigger=trigger||document.activeElement;
  var address=[r.diaChi,r.khu].filter(Boolean).join(' · ');
  $('#detailBody').innerHTML='<p class="eyebrow">'+esc(r.loai)+' · '+(r.trangThai==='dadi'?'ĐÃ GHÉ':'MUỐN THỬ')+'</p>'+
- '<h2 id="detailTitle">'+esc(r.ten)+'</h2>'+
+ '<h2 id="detailTitle">'+esc(r.ten)+'</h2>'+photoDetail(r)+
  (r.canXacMinh?'<p class="detail-warning">Thông tin quán hoặc chi nhánh cần được xác minh trước khi đến.</p>':'')+
  '<div class="detail-facts"><section><h3>Địa chỉ</h3><p>'+esc(address||'Chưa có địa chỉ xác nhận.')+'</p></section>'+
  '<section><h3>Món phải gọi</h3><p>'+esc(r.mon||'Chưa ghi món yêu thích.')+'</p></section>'+
@@ -497,6 +516,69 @@ $('.dialog-close').onclick=function(){dialog.close();};
 dialog.addEventListener('click',function(e){if(e.target===dialog){var r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 dialog.addEventListener('close',function(){document.body.style.overflow='';if(lastTrigger&&lastTrigger.isConnected)lastTrigger.focus({preventScroll:true});});
 updateRails();
+
+
+/* Ảnh quán và đường dẫn nguồn được quản lý riêng trong photos.js. */
+function photoCard(r){
+ var p=window.restaurantPhotos&&window.restaurantPhotos[r.id];
+ return p?'<span class="restaurant-photo"><img loading="lazy" src="'+esc(p.files[0])+'" alt="'+esc(p.alt)+'"><span>Ảnh từ '+esc(p.label)+'</span></span>':'<span class="photo-missing"><span>'+esc(r.loai)+'</span><small>Đang bổ sung ảnh xác thực</small></span>';
+}
+function photoDetail(r){
+ var p=window.restaurantPhotos&&window.restaurantPhotos[r.id];if(!p)return '';
+ return '<div class="restaurant-gallery">'+p.files.map(function(f){return '<img loading="lazy" src="'+esc(f)+'" alt="'+esc(p.alt)+'">';}).join('')+'</div><p class="photo-source">'+esc(p.note||'Ảnh từ website của quán.')+' <a target="_blank" rel="noopener" href="'+esc(p.source)+'">Nguồn: '+esc(p.label)+' ↗</a></p>';
+}
+/* Chốt danh sách khi quay; đổi bộ lọc sẽ huỷ lượt quay để tránh kết quả cũ. */
+var wheelReady=true,wheelMode='restaurants',wheelPool=[],wheelAngle=0,wheelBusy=false,wheelAnimation=null,wheelWinner=null,wheelVersion=0;
+var wheelColors=['#a83c59','#965025','#365e70','#58683b','#74466c','#395b9b','#9a4c3f','#53674d','#76569a','#286e72'];
+function wheelLabel(r){return wheelMode==='dishes'?r.mon:r.ten;}
+function refreshWheel(){
+ wheelVersion++;if(wheelAnimation)wheelAnimation.cancel();wheelAnimation=null;wheelBusy=false;wheelWinner=null;wheelAngle=0;
+ wheelPool=locRa().filter(function(r){return wheelMode==='restaurants'||r.mon;});
+ $('#wheelChoices').innerHTML=wheelPool.map(function(r){return '<label><input type="checkbox" checked value="'+esc(r.id)+'">'+esc(wheelLabel(r))+'</label>';}).join('');
+ $('#wheelChoices').querySelectorAll('input').forEach(function(i){i.onchange=drawWheel;});
+ $('#wheelResult').innerHTML='<span class="result-kicker">CUỘC HẸN TIẾP THEO</span><p>Sẵn sàng cho một bất ngờ?</p>';
+ document.querySelectorAll('[data-wheel-mode]').forEach(function(b){b.disabled=false;b.setAttribute('aria-pressed',String(b.dataset.wheelMode===wheelMode));});
+ drawWheel();
+}
+function wheelCandidates(){var ids=Array.from($('#wheelChoices').querySelectorAll('input:checked')).map(function(i){return i.value;});return wheelPool.filter(function(r){return ids.includes(r.id);});}
+function drawWheel(){
+ var pool=wheelCandidates(),n=pool.length,c=220,rad=207;
+ wheelAngle=0;$('#wheelDisc').style.transform='rotate(0deg)';wheelWinner=null;
+ var svg='<svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">';
+ function point(a){var r=a*Math.PI/180;return [c+rad*Math.cos(r),c+rad*Math.sin(r)];}
+ if(!n)svg+='<circle cx="220" cy="220" r="207" fill="#263645"/>';
+ pool.forEach(function(r,i){var start=-90+i*360/n,end=start+360/n,mid=(start+end)/2,p1=point(start),p2=point(end);
+ svg+=n===1?'<circle cx="220" cy="220" r="207" fill="'+wheelColors[0]+'"/>':'<path d="M220 220 L'+p1.join(' ')+' A207 207 0 '+(360/n>180?1:0)+' 1 '+p2.join(' ')+' Z" fill="'+wheelColors[i%wheelColors.length]+'" stroke="#ffffff35" stroke-width="1.5"/>';
+ var label=wheelLabel(r);if(label.length>19)label=label.slice(0,18)+'…';
+ svg+='<text transform="rotate('+mid+' 220 220)" x="404" y="225" text-anchor="end" fill="white" font-family="Arial,sans-serif" font-size="'+(n>8?12:14)+'" font-weight="600">'+esc(label)+'</text>';
+ });
+ svg+='</svg>';$('#wheelDisc').innerHTML=svg;
+ $('#wheelCount').textContent=n+' '+(wheelMode==='dishes'?'món đã ghi':'quán')+' trong vòng quay · Theo bộ lọc hiện tại';
+ $('#spinButton').disabled=n===0;
+ $('#wheelInstruction').textContent=n===0?'Không có lựa chọn. Đổi bộ lọc hoặc chọn lại bên trái.':n===1?'Có 1 lựa chọn — quay để khám phá.':'Mỗi lựa chọn có cơ hội như nhau';
+ $('#wheelResult').innerHTML='<span class="result-kicker">CUỘC HẸN TIẾP THEO</span><p>'+(n?'Sẵn sàng cho một bất ngờ?':'Chưa có lựa chọn phù hợp.')+'</p>';
+}
+function randomIndex(n){var a=new Uint32Array(1),limit=Math.floor(4294967296/n)*n;do{crypto.getRandomValues(a);}while(a[0]>=limit);return a[0]%n;}
+function spinWheel(){
+ var pool=wheelCandidates();if(wheelBusy||!pool.length)return;
+ wheelBusy=true;var version=++wheelVersion,index=randomIndex(pool.length),chosen=pool[index],start=wheelAngle;
+ var target=(360-(index+.5)*360/pool.length)%360;wheelAngle=start+1800+((target-start%360+360)%360);
+ $('#spinButton').disabled=true;$('#wheelResult').innerHTML='<span class="result-kicker">ĐANG QUAY</span><p>Hẹn ngon đang tới…</p>';
+ $('#wheelChoices').querySelectorAll('input').forEach(function(i){i.disabled=true;});document.querySelectorAll('[data-wheel-mode]').forEach(function(b){b.disabled=true;});
+ var duration=motion()==='auto'?0:4600;
+ wheelAnimation=$('#wheelDisc').animate([{transform:'rotate('+start+'deg)'},{transform:'rotate('+wheelAngle+'deg)'}],{duration:duration,easing:'cubic-bezier(.12,.7,.12,1)',fill:'forwards'});
+ wheelAnimation.finished.then(function(){
+ if(version!==wheelVersion)return;$('#wheelDisc').style.transform='rotate('+wheelAngle+'deg)';wheelAnimation.cancel();wheelAnimation=null;wheelBusy=false;wheelWinner=chosen;
+ $('#spinButton').disabled=false;$('#wheelChoices').querySelectorAll('input').forEach(function(i){i.disabled=false;});document.querySelectorAll('[data-wheel-mode]').forEach(function(b){b.disabled=false;});
+ $('#wheelResult').innerHTML='<span class="result-kicker">CHỐT KÈO HÔM NAY</span><h3>'+esc(wheelMode==='dishes'?chosen.mon:chosen.ten)+'</h3>'+(wheelMode==='dishes'?'<p>Tại '+esc(chosen.ten)+'</p>':'')+'<button class="wheel-detail">Khám phá quán này ↗</button>';
+ $('.wheel-detail').onclick=function(){openRestaurant(chosen.id,this);};$('#wheelInstruction').textContent='Đã chọn xong. Bạn có thể quay lại bất cứ lúc nào.';
+ if(innerWidth<=700)$('#wheelResult').scrollIntoView({block:'nearest',behavior:motion()});
+ if(duration){var box=$('.celebration');box.innerHTML=Array.from({length:20},function(_,i){return '<i style="--x:'+(i*5)+'%;--r:'+(i*37)+'deg;--delay:'+(i%5*.07)+'s;background:'+wheelColors[i%10]+'"></i>';}).join('');setTimeout(function(){box.innerHTML='';},2200);}
+ }).catch(function(){});
+}
+document.querySelectorAll('[data-wheel-mode]').forEach(function(b){b.onclick=function(){wheelMode=b.dataset.wheelMode;refreshWheel();};});
+$('#spinButton').onclick=spinWheel;
+refreshWheel();
 
 </script>
 </body>
