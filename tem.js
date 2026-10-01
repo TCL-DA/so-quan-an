@@ -105,7 +105,7 @@
     for (var y = 0; y < H; y += 5) { c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); }
     c.restore();
 
-    c.save(); c.globalAlpha = 0.05; c.strokeStyle = M.do; c.lineWidth = 1.1;
+    c.save(); c.globalAlpha = 0.028; c.strokeStyle = M.do; c.lineWidth = 1.1;
     for (var k = 0; k < 26; k++) {
       c.beginPath();
       for (var t = 0; t <= 360; t += 4) {
@@ -273,64 +273,73 @@
 
     dauBuuDien(c, W - 214, ay + ah - 124, opt.ngay || "01.01.26");
 
-    /* tên chính */
-    c.textAlign = "left"; c.fillStyle = M.muc;
-    var y = 606;
-    c.font = "500 13px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.vang;
-    chuDan(c, (mon ? "MÓN ĐƯỢC CHỌN" : "QUÁN ĐƯỢC CHỌN").toUpperCase(), 60, y, 2.2);
-    y += 36;
-    c.fillStyle = M.muc;
-    c.font = "800 46px 'Bricolage Grotesque','Be Vietnam Pro',sans-serif";
-    var sd = veChu(c, mon || r.ten, 60, y, W - 120, 52, 2);
-    y += sd * 52 + 4;
+    /* ---- Nửa dưới dùng MỐC CỐ ĐỊNH, không chảy theo nhau ----
+       Trước đây khối trên xếp theo dòng chảy còn khối dưới neo vào ô QR,
+       nên tên quán dài hai dòng là hai bên đâm vào nhau, chữ đè chữ.
+       Giờ mỗi khối có mốc riêng và bị cắt bớt nếu tràn.              */
+    var Y_TEN = 600, Y_VACH = 762, Y_MON = 792, Y_SERI = 888;
+    var QR_CANH = 186, qx = W - 60 - QR_CANH, qy = H - 60 - QR_CANH - 26;
+    var RONG_TRAI = qx - 60 - 24;          /* chừa chỗ cho ô QR */
 
-    if (mon) {   /* trúng món thì ghi quán ở dưới */
-      c.font = "600 22px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.do;
-      y += veChu(c, "tại " + r.ten, 60, y, W - 120, 28, 1) * 28 + 2;
+    c.textAlign = "left"; c.textBaseline = "alphabetic";
+    c.font = "500 13px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.vang;
+    chuDan(c, mon ? "MÓN ĐƯỢC CHỌN" : "QUÁN ĐƯỢC CHỌN", 60, Y_TEN, 2.2);
+
+    var noi = [r.diaChi, r.khu].filter(Boolean).join(" · ") || "chưa ghi địa chỉ";
+    var y = Y_TEN + 36;
+    c.fillStyle = M.muc;
+
+    if (mon) {
+      /* Tên món thường dài hơn tên quán, nên cỡ chữ nhỏ hơn và địa chỉ
+         được đẩy xuống ô cố định bên dưới — tránh tràn qua vạch ngăn. */
+      c.font = "800 37px 'Bricolage Grotesque','Be Vietnam Pro',sans-serif";
+      y += veChu(c, mon, 60, y, W - 120, 43, 2) * 43;
+      c.font = "600 21px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.do;
+      veChu(c, "tại " + r.ten, 60, y + 4, W - 120, 26, 1);
+    } else {
+      c.font = "800 44px 'Bricolage Grotesque','Be Vietnam Pro',sans-serif";
+      y += veChu(c, r.ten, 60, y, W - 120, 50, 2) * 50;
+      c.font = "400 16px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.mucNhat;
+      var choCon = Math.floor((Y_VACH - 14 - (y + 6)) / 22);
+      if (choCon >= 1) veChu(c, noi, 60, y + 6, W - 120, 22, Math.min(2, choCon));
     }
 
-    /* địa chỉ */
-    c.font = "400 17px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.mucNhat;
-    var noi = [r.diaChi, r.khu].filter(Boolean).join(" · ") || "chưa ghi địa chỉ";
-    y += veChu(c, noi, 60, y + 6, W - 120, 24, 2) * 24;
-
     /* vạch ngăn có hạt trám */
-    y += 18;
-    c.strokeStyle = M.muc; c.globalAlpha = .3; c.lineWidth = 1;
-    c.beginPath(); c.moveTo(60, y); c.lineTo(W - 60, y); c.stroke(); c.globalAlpha = 1;
+    c.strokeStyle = M.muc; c.globalAlpha = .28; c.lineWidth = 1;
+    c.beginPath(); c.moveTo(60, Y_VACH); c.lineTo(W - 60, Y_VACH); c.stroke(); c.globalAlpha = 1;
     c.fillStyle = M.do;
     [0, 1, 2].forEach(function (i) {
-      c.save(); c.translate(W / 2 + (i - 1) * 16, y); c.rotate(Math.PI / 4);
+      c.save(); c.translate(W / 2 + (i - 1) * 16, Y_VACH); c.rotate(Math.PI / 4);
       c.fillRect(-2.6, -2.6, 5.2, 5.2); c.restore();
     });
 
-    /* hàng thông tin */
-    y += 34;
+    /* món phải gọi — bề ngang bị chặn để không chui xuống dưới ô QR */
     c.font = "500 12px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.vang;
-    chuDan(c, mon ? "QUÁN NÀY THUỘC" : "MÓN PHẢI GỌI", 60, y, 2);
-    c.font = "600 20px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.muc;
-    veChu(c, mon ? (r.loai + " · " + (r.trangThai === "dadi" ? "đã đi" : "muốn thử"))
-                 : (r.mon || "chưa ghi — lần tới nhớ ghi lại"), 60, y + 27, 400, 24, 2);
+    chuDan(c, mon ? "ĐỊA CHỈ" : "MÓN PHẢI GỌI", 60, Y_MON, 2);
+    c.font = "600 " + (mon ? 16 : 19) + "px 'Be Vietnam Pro',sans-serif"; c.fillStyle = M.muc;
+    veChu(c, mon ? noi : (r.mon || "chưa ghi — lần tới nhớ ghi lại"),
+          60, Y_MON + 27, RONG_TRAI, mon ? 21 : 23, 2);
 
-    /* QR + sê-ri */
-    var qx = W - 60 - 186, qy = H - 60 - 212;
-    var coQR = veQR(c, opt.link || "", qx, qy, 186);
+    /* mã QR */
+    var coQR = veQR(c, opt.link || "", qx, qy, QR_CANH);
     c.textAlign = "right"; c.fillStyle = M.mucNhat;
     c.font = "500 12px 'Be Vietnam Pro',sans-serif";
-    c.fillText(coQR ? "quét để mở bản đồ" : "", W - 60, qy + 212);
+    if (coQR) c.fillText("quét để mở bản đồ", W - 60, qy + QR_CANH + 22);
 
+    /* sê-ri và dấu ngày, cột trái dưới cùng */
     c.textAlign = "left";
     c.fillStyle = M.muc; c.font = "700 15px 'Be Vietnam Pro',sans-serif";
-    c.fillText("No. " + opt.seri, 60, qy + 28);
+    c.fillText("No. " + opt.seri, 60, Y_SERI);
     c.fillStyle = M.mucNhat; c.font = "400 13px 'Be Vietnam Pro',sans-serif";
-    c.fillText(opt.ngayDai || "", 60, qy + 52);
+    c.fillText(opt.ngayDai || "", 60, Y_SERI + 24);
+    var yc = Y_SERI + 48;
     if (r.canXacMinh) {
       c.fillStyle = M.vang; c.font = "600 12px 'Be Vietnam Pro',sans-serif";
-      c.fillText("◆ chi nhánh chưa xác minh", 60, qy + 78);
+      c.fillText("◆ chi nhánh chưa xác minh", 60, yc); yc += 22;
     }
     if ((r.tags || []).indexOf("Michelin") > -1) {
       c.fillStyle = M.do; c.font = "700 13px 'Be Vietnam Pro',sans-serif";
-      c.fillText("★ MICHELIN GUIDE", 60, qy + 104);
+      c.fillText("★ MICHELIN GUIDE", 60, yc);
     }
 
     rangCua(c);
