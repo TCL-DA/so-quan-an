@@ -199,6 +199,11 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
 @media(max-width:700px){.wrap{padding-inline:22px}.nav-inner{height:54px}.nav-links{gap:20px}.nav-links a{font-size:11px}.nav-links a:last-child,.nav-city{display:none}.brand{font-size:20px}.announcement{font-size:11px;padding:13px 20px}.announcement a{display:inline-block}header.top{padding:43px 0 25px}.mark{font-size:43px;letter-spacing:-1.8px}.mobile-break{display:block}.hero-aside{display:none}.sub{font-size:15px;margin-top:18px}.categories{gap:12px;padding-bottom:30px}.category{flex-basis:76px;font-size:12px}.category span{font-size:36px;height:52px}.section-title{font-size:25px;letter-spacing:-.6px}.features{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -22px 42px;padding:0 22px 16px;scrollbar-width:thin}.feature{flex:0 0 84%;height:380px;scroll-snap-align:center}.feature h3{font-size:30px}.bar{position:static;padding-top:0}.bar-in{display:grid;grid-template-columns:1fr 1fr;gap:9px}.search{grid-column:1/-1}.sel{width:100%;min-width:0}.grid{grid-template-columns:1fr;gap:18px}.quan{padding:26px}.ten{min-height:0}.tally{gap:8px 12px}.features small{font-size:10px}footer{margin:0 22px;padding-top:24px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
+
+/* Dãy thẻ cuộn ngang và cửa sổ thông tin chi tiết. */
+.features{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:22px;padding:8px 4px 20px;margin:0 -4px;scrollbar-width:none}.features::-webkit-scrollbar,.grid::-webkit-scrollbar{display:none}.feature{flex:0 0 380px;height:480px;scroll-snap-align:start}.feature-copy{padding:32px}.feature h3{font-size:33px}.rail-controls{display:flex;justify-content:flex-end;gap:12px;margin:14px 0 52px}.rail-arrow{border:0;border-radius:50%;background:#e5e5e9;color:#333336;width:38px;height:38px;font-size:29px;line-height:1;display:grid;place-items:center}.rail-arrow:hover:not(:disabled){background:#d5d5db}.rail-arrow:disabled{opacity:.35;cursor:default}.grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:22px;margin:0 -4px;padding:6px 4px 20px;scrollbar-width:none;align-items:stretch}.quan{flex:0 0 355px;scroll-snap-align:start;padding:0;min-height:370px;display:block}.card-open{display:flex;flex-direction:column;align-items:flex-start;text-align:left;border:0;background:transparent;color:inherit;padding:30px;width:100%;height:100%;border-radius:22px;cursor:pointer;gap:18px}.card-open:focus-visible{outline:3px solid #0071e3;outline-offset:-4px}.card-eyebrow{font-size:11px;letter-spacing:.6px;color:#6e6e73;font-weight:650}.card-open .ten{font-size:30px;min-height:0;margin:0;line-height:1.12}.card-location{font-size:13px;color:#6e6e73;line-height:1.5}.card-note{font-size:15px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card-bottom{margin-top:auto;padding-top:15px;display:flex;align-items:center;justify-content:space-between;width:100%;font-size:11px;color:#6e6e73;gap:10px}.plus{width:32px;height:32px;border-radius:50%;background:#f0f0f3;font-size:26px;color:#333;display:grid;place-items:center;flex:none}.state{min-width:100%}.result-summary{font-size:12px;color:#6e6e73;margin:0 0 14px}dialog{border:0;padding:65px 55px 48px;width:min(760px,calc(100% - 40px));max-height:90dvh;border-radius:26px;color:#1d1d1f;box-shadow:0 24px 100px #0004}dialog::backdrop{background:#0006;backdrop-filter:blur(8px)}.dialog-close{position:absolute;right:18px;top:18px;width:36px;height:36px;border:0;border-radius:50%;background:#ededf0;color:#555;font-size:25px;display:grid;place-items:center}#detailTitle{font-size:40px;line-height:1.13;letter-spacing:-1.4px;margin:12px 0 28px}.detail-warning{font-size:13px;background:#faf3e7;color:#765017;padding:14px 17px;border-radius:12px}.detail-facts{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;margin:26px 0}.detail-facts h3,.detail-notes h3{font-size:13px;margin:0 0 7px}.detail-facts p,.detail-notes p{font-size:15px;color:#6e6e73;line-height:1.65;margin:0}.detail-notes{border-top:1px solid #e5e5e9;padding-top:24px;margin-bottom:22px}.detail-map{display:inline-block;background:#0071e3;color:white;text-decoration:none;border-radius:24px;padding:13px 23px;margin-top:30px;font-size:14px}#grid:focus-visible,#inspirationRail:focus-visible{outline:2px solid #0071e3;outline-offset:5px}
+@media(max-width:700px){.features{margin:0 -22px;padding:8px 22px 18px;scroll-padding-inline:22px}.feature{flex-basis:86%;height:440px}.feature h3{font-size:31px}.grid{margin:0 -22px;padding:6px 22px 20px;scroll-padding-inline:22px}.quan{flex-basis:87%;min-height:360px}.card-open{padding:27px}.rail-controls{margin-bottom:38px}.card-open .ten{font-size:28px}dialog{padding:62px 26px 32px;width:calc(100% - 22px);max-height:92dvh;border-radius:22px}#detailTitle{font-size:32px}.detail-facts{grid-template-columns:1fr;gap:22px}.detail-map{display:block;text-align:center}.feature-copy{padding:28px}}
+
 </style>
 </head>
 <body>
@@ -228,11 +233,11 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
 <button data-category="Âu / Bistro" class="category" aria-pressed="false"><span aria-hidden="true">🍽️</span>Bistro</button>
 </div>
 <section id="inspiration" aria-labelledby="inspire-title"><h2 class="section-title" id="inspire-title">Một chút cảm hứng. <span>Cho chiếc bụng đói.</span></h2>
-<div class="features">
+<div class="features" id="inspirationRail" tabindex="0" role="region" aria-label="Cảm hứng ăn uống" >
 <a class="feature fresh" href="#discover" data-preset="muonthu"><img src="assets/fresh.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>ĐỔI VỊ HÔM NAY</p><h3>Thử một nơi mới.<br>Biết đâu lại mê.</h3><span>Khám phá quán muốn thử ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
 <a class="feature dinner" href="#discover" data-preset="dadi"><img src="assets/dinner.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>HẸN NHAU ĐI ĂN</p><h3>Quán quen.<br>Câu chuyện mới.</h3><span>Xem những nơi đã ghé ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
 <a class="feature pizza" href="#discover" data-food="Ý"><img src="assets/pizza.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>MỘT CHÚT NƯỚC Ý</p><h3>Thêm một miếng.<br>Thêm một niềm vui.</h3><span>Khám phá món Ý ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
-</div></section>
+</div><div class="rail-controls"><button class="rail-arrow" data-rail="inspirationRail" data-direction="-1" aria-label="Cảm hứng trước">‹</button><button class="rail-arrow" data-rail="inspirationRail" data-direction="1" aria-label="Cảm hứng tiếp theo">›</button></div></section>
 <section id="discover" aria-labelledby="list-title"><h2 class="section-title" id="list-title">Những địa chỉ đáng nhớ. <span>Chọn theo cách của bạn.</span></h2><p class="tally" id="tally" aria-live="polite"></p></section>
 </div>
 <div class="bar">
@@ -259,9 +264,10 @@ header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:s
 
 <div class="wrap">
   <p class="note" id="note" hidden></p>
-  <div class="grid" id="grid"></div>
+  <p class="result-summary" id="resultSummary" role="status"></p><div class="grid" id="grid" tabindex="0" role="region" aria-label="Danh sách quán, cuộn ngang để khám phá"></div><div class="rail-controls"><button class="rail-arrow" data-rail="grid" data-direction="-1" aria-label="Quán trước">‹</button><button class="rail-arrow" data-rail="grid" data-direction="1" aria-label="Quán tiếp theo">›</button></div>
   </div></main><footer id="about"><div class="footer-brand">sổ quán<span>●</span></div><p>Một cuốn sổ dành cho những cuộc hẹn ăn uống ở Sài Gòn.</p><p>Danh sách quán ăn công khai. Kiểm tra thông tin có nhãn “cần xác minh” trước khi đến.</p><p class="credits">Ảnh minh hoạ: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p></footer>
 
+<dialog id="restaurantDialog" aria-labelledby="detailTitle"><button class="dialog-close" aria-label="Đóng chi tiết">×</button><div id="detailBody"></div></dialog>
 <script>
 /* ============================================================
    Sổ quán ăn Sài Gòn — trang tĩnh, chạy được trên GitHub Pages.
@@ -388,32 +394,14 @@ function veTally(){
 }
 
 function veMotQuan(r){
-  var tt = r.trangThai === "dadi" ? '<span class="chip di">Đã đi</span>' : '<span class="chip thu">Muốn thử</span>';
-  var tags = (r.tags || []).map(function(x){
-    return '<span class="chip' + (x === "Michelin" ? " mich" : "") + '">' + esc(x) + '</span>';
-  }).join("");
-  var noi = [r.diaChi, r.khu].filter(Boolean).join(" · ");
-  var diem = typeof r.diem === "number"
-    ? '<div class="diem">' + soDiem(r.diem) + '<small>/10</small></div>' +
-      '<div class="bar10"><i style="width:' + Math.max(0, Math.min(100, r.diem * 10)) + '%"></i></div>'
-    : '<div class="diem chua">Chưa chấm</div>';
-  var gia = Number(r.gia) > 0
-    ? '<div class="cap">Một người</div><div class="v">' + tien(r.gia) + '</div>'
-    : '<div class="cap">Một người</div><div class="v" style="color:var(--ink-faint);font-weight:500">chưa ghi</div>';
-
-  return '<article class="quan' + (nhanManh === r.id ? " hit" : "") + '" id="q-' + esc(r.id) + '">' +
-    '<div class="row1"><span class="chip">' + esc(r.loai || "Khác") + '</span>' + tt +
-      (r.canXacMinh ? '<span class="chip cv">cần xác minh</span>' : "") + '</div>' +
-    '<h3 class="ten">' + esc(r.ten) + '</h3>' +
-    (noi ? '<p class="noi">' + esc(noi) + '</p>' : "") +
-    (r.mon ? '<p class="mon"><b>Món phải gọi</b>' + esc(r.mon) + '</p>' : "") +
-    (tags ? '<div class="tags">' + tags + '</div>' : "") +
-    (r.ghiChu ? '<p class="ghi">' + esc(r.ghiChu) + '</p>' : "") +
-    '<div class="meta"><div class="diem-w"><div class="cap">Điểm</div>' + diem + '</div>' +
-      '<div class="gia">' + gia + '</div></div>' +
-    '<div class="act">' +
-      '<a class="btn sm" target="_blank" rel="noopener" href="' + esc(mapLink(r)) + '">Chỉ đường</a>' +
-    '</div></article>';
+  var noi=[r.diaChi,r.khu].filter(Boolean).join(' · ');
+  return '<article class="quan'+(nhanManh===r.id?' hit':'')+'" id="q-'+esc(r.id)+'">'+
+    '<button class="card-open" data-detail="'+esc(r.id)+'" aria-label="Xem chi tiết '+esc(r.ten)+'">'+
+    '<span class="card-eyebrow">'+esc(r.loai)+' · '+(r.trangThai==='dadi'?'Đã ghé':'Muốn thử')+'</span>'+
+    '<h3 class="ten">'+esc(r.ten)+'</h3>'+
+    '<span class="card-location">'+esc(noi||'Địa chỉ đang cập nhật')+'</span>'+
+    '<span class="card-note">'+esc(r.mon||r.ghiChu||'Một địa chỉ cho cuộc hẹn tiếp theo.')+'</span>'+
+    '<span class="card-bottom"><span>'+(r.canXacMinh?'Thông tin cần xác minh':'Khám phá quán')+'</span><span class="plus" aria-hidden="true">+</span></span></button></article>';
 }
 
 function ve(){
@@ -421,6 +409,8 @@ function ve(){
   veTally();
   var g = $("#grid");
   var ds = locRa();
+  $("#resultSummary").textContent=ds.length+" quán"+(ds.length>1?" · Vuốt hoặc dùng nút mũi tên để khám phá":"");
+  requestAnimationFrame(updateRails);
   if (!ds.length){
     g.innerHTML = items.length
       ? '<div class="state"><h2>Không có quán nào khớp</h2><p>Thử bỏ bớt bộ lọc hoặc xoá chữ đang tìm.</p>' +
@@ -446,7 +436,7 @@ $("#fLoai").innerHTML += LOAI.map(function(x){ return '<option value="' + esc(x)
 $("#bRandom").onclick = function(){
   var ds=locRa(); if(!ds.length) return;
   var r=ds[Math.floor(Math.random()*ds.length)]; nhanManh=r.id; ve();
-  document.getElementById("q-"+r.id).scrollIntoView({behavior:"smooth",block:"center"});
+  openRestaurant(r.id, $("#bRandom"));
 };
 items = [{"ten": "An Của Saigon", "loai": "Hải sản", "trangThai": "muonthu", "diaChi": "196 Lê Thánh Tôn, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách"], "ghiChu": "Hải sản Việt, nước chấm nhà làm. Mở 11:00–22:00 mỗi ngày. Tầng 1 ngồi được 20–30 khách. Web: ancuasaigon.vn", "taoLuc": 1790840000000, "id": "an-cua-saigon"}, {"ten": "elgin", "loai": "Âu / Bistro", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Ba bảng Michelin 2023 · 2024 · 2025 treo ngoài cửa. Bếp mở, quầy rượu vang, cầu thang lên gác. Chưa ghi địa chỉ.", "taoLuc": 1790839000000, "id": "elgin"}, {"ten": "Bờm", "loai": "Việt", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Michelin 2023 · 2024 · 2025. Bảng trước cửa ghi mở 11:00–23:00, happy hour 16:00–19:00. Chưa ghi địa chỉ.", "taoLuc": 1790838000000, "id": "bom"}, {"ten": "Khap Khap Thai Bistro", "loai": "Thái", "trangThai": "dadi", "diaChi": "20 Nguyễn Thị Minh Khai / 46 Ter Võ Văn Tần / 52 Xuân Thủy", "khu": "TP.HCM", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Chuỗi ba chi nhánh, mở khoảng 10:00–22:00. Chưa rõ hôm đó ăn chi nhánh nào — đi lại thì ghi rõ số nhà.", "taoLuc": 1790837000000, "id": "khap-khap"}, {"ten": "Kohaku Sushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "Tầng 5, Vạn Hạnh Mall — 11 Sư Vạn Hạnh", "khu": "Quận 10", "mon": "Cơm lươn Unagi Don", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Đậu ô tô"], "ghiChu": "Kohaku có nhiều chi nhánh — Vạn Hạnh Mall mới là phỏng đoán, chưa chắc.", "taoLuc": 1790836000000, "id": "kohaku-sushi"}, {"ten": "Sushi Hokkaido Sachi — Thảo Điền", "loai": "Nhật", "trangThai": "dadi", "diaChi": "109 Võ Nguyên Giáp, P. An Khánh", "khu": "TP Thủ Đức", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách", "Đậu ô tô"], "ghiChu": "Chi nhánh Sachi Garden. Nhận ra nhờ bảng “Mực Bơi”, hồ hải sản và không gian tông đen.", "taoLuc": 1790835000000, "id": "sushi-hokkaido-sachi"}, {"ten": "Taco Del Sol", "loai": "Mexico", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Ngoài trời", "Nhóm đông"], "ghiChu": "Sân ngoài trời, tường cam, đài phun nước và tượng skeleton mariachi. Hợp ngồi tối, nhóm đông. Chưa ghi địa chỉ.", "taoLuc": 1790834000000, "id": "taco-del-sol"}, {"ten": "Pazzi", "loai": "Ý", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Steak + khoai chiên, sốt tiêu", "gia": null, "diem": null, "canXacMinh": true, "tags": [], "ghiChu": "Menu bìa giấy, lời chào tiếng Việt “Cảm ơn bạn đã ghé Pazzi”. Bàn bếp mặt đá. Chưa ghi địa chỉ.", "taoLuc": 1790833000000, "id": "pazzi"}, {"ten": "iSushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Sushi cá hồi cuộn sốt cay", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Menu à la carte bìa da. Chưa rõ chi nhánh.", "taoLuc": 1790832000000, "id": "isushi"}, {"ten": "Man Tang Gi (满堂記)", "loai": "Hoa", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Tiếp khách"], "ghiChu": "Quán Hoa, đèn lồng vải, ghế booth ngăn riêng — kín đáo, hợp tiếp khách. Chưa ghi địa chỉ.", "taoLuc": 1790831000000, "id": "man-tang-gi"}];
 ve();
@@ -458,13 +448,56 @@ function syncCategories(){
 }
 document.querySelectorAll('[data-category]').forEach(function(b){b.onclick=function(){
   $("#fLoai").value=b.dataset.category; $("#fTT").value=''; $("#q").value=''; nhanManh=null;syncCategories();ve();
-  document.getElementById('discover').scrollIntoView({behavior:'smooth'});
+  document.getElementById('discover').scrollIntoView({behavior:motion()});
 };});
 $("#fLoai").addEventListener('change',syncCategories);
 document.querySelectorAll('[data-preset], [data-food]').forEach(function(a){a.onclick=function(){
   $("#q").value=''; $("#fLoai").value=a.dataset.food||''; $("#fTT").value=a.dataset.preset||'';nhanManh=null;syncCategories();ve();
 };});
 $("#heroRandom").onclick=function(e){e.preventDefault();$("#q").value='';$("#fLoai").value='';$("#fTT").value='';syncCategories();$("#bRandom").onclick();};
+
+/* Dãy thẻ dùng cuộn tự nhiên; chi tiết mở bằng dialog có quản lý tiêu điểm. */
+function motion(){return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';}
+function updateRails(){
+ document.querySelectorAll('[data-rail]').forEach(function(b){
+  var rail=document.getElementById(b.dataset.rail),end=rail.scrollWidth-rail.clientWidth;
+  b.disabled=Number(b.dataset.direction)<0?rail.scrollLeft<2:rail.scrollLeft>=end-2;
+ });
+}
+document.querySelectorAll('[data-rail]').forEach(function(b){b.onclick=function(){
+ var rail=document.getElementById(b.dataset.rail),card=rail.firstElementChild;
+ rail.scrollBy({left:Number(b.dataset.direction)*(card?card.getBoundingClientRect().width+22:320),behavior:motion()});
+};});
+['grid','inspirationRail'].forEach(function(id){
+ var rail=document.getElementById(id);rail.addEventListener('scroll',updateRails,{passive:true});
+ rail.addEventListener('keydown',function(e){if(e.target===rail&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){
+  e.preventDefault();rail.scrollBy({left:(e.key==='ArrowRight'?1:-1)*360,behavior:motion()});
+ }});
+});
+window.addEventListener('resize',updateRails);
+var dialog=document.getElementById('restaurantDialog'),lastTrigger=null;
+function openRestaurant(id,trigger){
+ var r=items.find(function(x){return x.id===id;});if(!r)return;
+ lastTrigger=trigger||document.activeElement;
+ var address=[r.diaChi,r.khu].filter(Boolean).join(' · ');
+ $('#detailBody').innerHTML='<p class="eyebrow">'+esc(r.loai)+' · '+(r.trangThai==='dadi'?'ĐÃ GHÉ':'MUỐN THỬ')+'</p>'+
+ '<h2 id="detailTitle">'+esc(r.ten)+'</h2>'+
+ (r.canXacMinh?'<p class="detail-warning">Thông tin quán hoặc chi nhánh cần được xác minh trước khi đến.</p>':'')+
+ '<div class="detail-facts"><section><h3>Địa chỉ</h3><p>'+esc(address||'Chưa có địa chỉ xác nhận.')+'</p></section>'+
+ '<section><h3>Món phải gọi</h3><p>'+esc(r.mon||'Chưa ghi món yêu thích.')+'</p></section>'+
+ '<section><h3>Giá một người</h3><p>'+esc(tien(r.gia)||'Chưa cập nhật')+'</p></section>'+
+ '<section><h3>Điểm trong sổ</h3><p>'+(typeof r.diem==='number'?esc(soDiem(r.diem))+'/10':'Chưa chấm')+'</p></section></div>'+
+ '<section class="detail-notes"><h3>Ghi chú cho lần hẹn tới</h3><p>'+esc(r.ghiChu||'Chưa có ghi chú.')+'</p></section>'+
+ '<div class="tags">'+(r.tags||[]).map(function(t){return '<span class="chip">'+esc(t)+'</span>';}).join('')+'</div>'+
+ '<a class="detail-map" target="_blank" rel="noopener" href="'+esc(mapLink(r))+'">Tìm trên Google Maps ↗</a>';
+ dialog.showModal();document.body.style.overflow='hidden';dialog.scrollTop=0;
+}
+$('#grid').addEventListener('click',function(e){var b=e.target.closest('[data-detail]');if(b)openRestaurant(b.dataset.detail,b);});
+$('.dialog-close').onclick=function(){dialog.close();};
+dialog.addEventListener('click',function(e){if(e.target===dialog){var r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+dialog.addEventListener('close',function(){document.body.style.overflow='';if(lastTrigger&&lastTrigger.isConnected)lastTrigger.focus({preventScroll:true});});
+updateRails();
+
 </script>
 </body>
 </html>

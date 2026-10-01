@@ -17,3 +17,7 @@ Lấy cảm hứng từ https://www.apple.com/vn/store: nền sáng, tiêu đề
 ## Kiểm tra trước khi phát hành
 
 Kiểm tra tìm kiếm, bộ lọc loại/trạng thái, mục khám phá, chọn ngẫu nhiên, trạng thái rỗng và đặt lại. Kiểm tra ảnh tải được, không có lỗi JavaScript, không tràn ngang ở chiều rộng 390, 768 và 1440 px. Xem giao diện điện thoại và máy tính trước khi đẩy lên GitHub.
+
+## Trải nghiệm duyệt quán
+
+Dãy cảm hứng và danh sách quán cuộn ngang, hỗ trợ vuốt, nút chuyển thẻ và phím mũi tên khi vùng cuộn có tiêu điểm. Bấm thẻ để mở chi tiết, bấm Esc hoặc nút đóng để quay lại đúng thẻ. Dialog giữ tiêu điểm bên trong và khoá cuộn nền. Nút chọn ngẫu nhiên mở chi tiết một quán trong bộ lọc hiện tại. Chuyển động tuân theo tuỳ chọn giảm chuyển động của hệ điều hành.
