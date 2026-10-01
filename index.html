@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Sổ quán ăn Sài Gòn</title>
 <meta name="description" content="Sổ tay lưu các quán ăn đã đi và muốn thử ở Sài Gòn — món phải gọi, giá một người, điểm chấm và đường tới quán.">
-<meta name="theme-color" content="#eceff3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#10151b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Sổ quán ăn Sài Gòn">
 <meta property="og:description" content="Quán đã đi và quán còn muốn thử — món phải gọi, giá một người, điểm chấm và đường tới nơi.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b9112c'/%3E%3Cpath d='M10 7v8a3 3 0 0 0 3 3v7M13 7v6M16 7v18M22 7c-1.6 1.4-2.4 3.4-2.4 5.6 0 1.8.8 3 2.4 3.4v9' stroke='%23fff' stroke-width='1.9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
 
 <style>
 /* Bố cục: thanh lọc dính trên đầu + lưới phiếu quán, 1 cột trên điện thoại.
@@ -189,18 +186,55 @@ label.fld>span{display:block; font-size:12px; font-weight:600; color:var(--ink-s
 .note{margin:0 0 16px; padding:11px 13px; border-radius:10px; font-size:13.5px; background:var(--brass-soft); color:var(--brass)}
 footer{padding-block:8px 36px; font-size:12.5px; color:var(--ink-faint); border-top:1px solid var(--line-soft)}
 @media (prefers-reduced-motion:reduce){ *{transition:none !important; animation:none !important} }
+
+/* Giao diện sáng, khoảng trống rộng và thẻ nội dung lấy cảm hứng từ Apple Store. */
+:root,:root[data-theme="dark"]{--paper:#f5f5f7;--card:#fff;--card-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#6e6e73;--ink-faint:#6e6e73;--line:#d2d2d7;--line-soft:#e8e8ed;--accent:#0071e3;--accent-ink:#0066cc;--accent-soft:#eaf3ff;--brass:#825520;--brass-soft:#f6eddf;--ok:#267548;--ok-soft:#eaf4ed;--f-display:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--f-body:var(--f-display);--shadow:2px 4px 12px #00000008;color-scheme:light}
+html{scroll-behavior:smooth;scroll-padding-top:110px}body{font-size:15px;line-height:1.5}.wrap{max-width:1260px;padding-inline:40px}.skip{position:absolute;top:-80px;left:20px;z-index:100;background:white;padding:12px}.skip:focus{top:5px}a{color:var(--accent-ink)}
+.navigation{background:#fafafc}.nav-inner{height:58px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:22px;font-weight:750;letter-spacing:-1px;color:var(--ink);text-decoration:none}.brand span,.footer-brand span{color:#e6823c;font-size:10px;margin-left:3px}.nav-links{display:flex;gap:42px}.nav-links a,.nav-city{font-size:12px;color:var(--ink);text-decoration:none}.nav-links a:hover,.nav-city:hover{text-decoration:underline}.announcement{background:white;text-align:center;padding:16px 24px;font-size:13px}.announcement a{text-decoration:none;margin-left:9px}
+header.top{padding:72px 0 40px;display:flex;align-items:center;justify-content:space-between;gap:40px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:650;color:#6e6e73;margin:0 0 18px}.mark{font-size:clamp(40px,4.5vw,62px);line-height:1.1;letter-spacing:-2.6px;font-weight:700;text-wrap:initial}.mark em{color:#6e6e73}.mobile-break{display:none}.sub{font-size:17px;line-height:1.55;margin-top:22px}.hero-aside{display:flex;gap:13px;align-items:center;font-size:13px;flex-shrink:0}.hero-aside a{text-decoration:none}.aside-icon{width:44px;height:44px;border-radius:50%;background:white;display:grid;place-items:center;font-size:26px}
+.categories{display:flex;justify-content:space-between;gap:20px;overflow:auto;padding:12px 0 48px;scrollbar-width:thin}.category{flex:0 0 95px;display:flex;flex-direction:column;align-items:center;gap:12px;background:none;border:0;border-bottom:2px solid transparent;padding:10px 5px 12px;font-size:13px;font-weight:600;color:var(--ink)}.category span{height:65px;width:72px;display:grid;place-items:center;font-size:43px;transition:transform .2s}.category:hover span{transform:translateY(-4px)}.category.active{border-bottom-color:var(--accent);color:var(--accent-ink)}
+.section-title{font-size:28px;line-height:1.25;font-weight:650;letter-spacing:-.8px;margin:0 0 24px}.section-title span{color:#6e6e73}.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-bottom:70px}.feature{position:relative;height:430px;overflow:hidden;border-radius:22px;color:white;text-decoration:none;box-shadow:var(--shadow);isolation:isolate;transition:transform .25s,box-shadow .25s}.feature:hover{transform:translateY(-5px);box-shadow:2px 10px 24px #00000018}.feature img{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-2}.feature:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000b 0%,#0005 46%,transparent 75%,#0007);z-index:-1}.feature-copy{padding:30px}.feature-copy p{font-size:11px;letter-spacing:1.3px;font-weight:600;margin:0 0 14px}.feature h3{font-size:30px;line-height:1.15;letter-spacing:-.7px;margin:0 0 14px;font-weight:650}.feature-copy>span{font-size:13px}.feature small{position:absolute;bottom:17px;left:30px;font-size:10px;color:#fff}.fresh img{object-position:60% center}.dinner img{object-position:50% center}.pizza img{object-position:55% center}
+#discover{scroll-margin-top:20px}.tally{margin:-8px 0 20px;font-size:13px}.bar{background:#f5f5f7ee;backdrop-filter:blur(16px);border:0;padding:14px 0;margin-bottom:18px}.bar-in{gap:10px}.search{flex:1 1 240px}input[type=search],select{border-radius:12px;background:white;border-color:#d2d2d7;min-height:46px;font-size:13px}.btn{border-radius:24px;font-size:13px;min-height:44px}.btn.ghost{background:var(--accent);border-color:var(--accent);color:#fff;padding-inline:20px}.grid{gap:22px;padding-bottom:60px}.quan{border:0;border-radius:22px;padding:28px;gap:13px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;scroll-margin-top:110px}.quan:hover{transform:translateY(-3px);box-shadow:2px 6px 18px #0000000d}.quan.hit{box-shadow:0 0 0 3px #0071e3,var(--shadow)}.ten{font-size:27px;line-height:1.16;letter-spacing:-.8px;font-weight:650;min-height:62px;text-wrap:initial}.chip{font-size:10px;letter-spacing:.03em;padding:4px 8px;border:0}.row1{gap:5px}.chip.cv{font-size:10px;color:#6e6e73;padding-left:0}.noi,.ghi{font-size:13px;line-height:1.65}.mon{border:0;border-radius:12px;padding:12px 14px;font-size:13px}.mon b{font-size:10px}.meta{padding-top:18px;margin-top:auto}.cap{font-size:10px;letter-spacing:.03em;margin-bottom:5px}.diem.chua,.gia .v{font-size:13px}.act{padding-top:6px}.act .btn{border:0;background:#f5f5f7;color:var(--accent-ink);border-radius:24px;min-height:40px}.act .btn:hover{background:#eaf3ff}.state{border:0;border-radius:22px}.state h2{font-size:25px}footer{max-width:1180px;margin:auto;padding:30px 0 38px;font-size:12px;line-height:1.6}.footer-brand{font-size:22px;color:var(--ink);font-weight:700;letter-spacing:-1px}footer p{margin:10px 0}.credits{font-size:11px}.credits a{color:inherit}
+@media(min-width:620px) and (max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.features{gap:16px}.feature-copy{padding:24px}.feature h3{font-size:25px}.feature{height:390px}.hero-aside{display:none}}
+@media(max-width:700px){.wrap{padding-inline:22px}.nav-inner{height:54px}.nav-links{gap:20px}.nav-links a{font-size:11px}.nav-links a:last-child,.nav-city{display:none}.brand{font-size:20px}.announcement{font-size:11px;padding:13px 20px}.announcement a{display:inline-block}header.top{padding:43px 0 25px}.mark{font-size:43px;letter-spacing:-1.8px}.mobile-break{display:block}.hero-aside{display:none}.sub{font-size:15px;margin-top:18px}.categories{gap:12px;padding-bottom:30px}.category{flex-basis:76px;font-size:12px}.category span{font-size:36px;height:52px}.section-title{font-size:25px;letter-spacing:-.6px}.features{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -22px 42px;padding:0 22px 16px;scrollbar-width:thin}.feature{flex:0 0 84%;height:380px;scroll-snap-align:center}.feature h3{font-size:30px}.bar{position:static;padding-top:0}.bar-in{display:grid;grid-template-columns:1fr 1fr;gap:9px}.search{grid-column:1/-1}.sel{width:100%;min-width:0}.grid{grid-template-columns:1fr;gap:18px}.quan{padding:26px}.ten{min-height:0}.tally{gap:8px 12px}.features small{font-size:10px}footer{margin:0 22px;padding-top:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
 </style>
 </head>
 <body>
+<a class="skip" href="#discover">Đến danh sách quán</a>
+<nav class="navigation" aria-label="Điều hướng chính"><div class="wrap nav-inner">
+<a class="brand" href="#">sổ quán<span>●</span></a>
+<div class="nav-links"><a href="#inspiration">Khám phá</a><a href="#discover">Tất cả quán</a><a href="#about">Về cuốn sổ</a></div>
+<a class="nav-city" href="#discover">Sài Gòn <span aria-hidden="true">↗</span></a>
+</div></nav>
+<div class="announcement">Một cuốn sổ nhỏ. Nhiều cuộc hẹn ngon. <a href="#discover">Tìm quán hôm nay <span aria-hidden="true">›</span></a></div>
 
+<main>
 <div class="wrap">
-  <header class="top">
-    <h1 class="mark">Sổ quán ăn <em>Sài Gòn</em></h1>
-    <p class="sub">Quán đã đi và quán còn muốn thử — món phải gọi, giá một người, điểm chấm và đường tới nơi.</p>
-    <p class="tally" id="tally"></p>
-  </header>
+<header class="top"><div><p class="eyebrow">SỔ QUÁN ĂN SÀI GÒN</p>
+<h1 class="mark">Đi ăn thôi.<br><em>Mỗi cuộc hẹn,<br class="mobile-break"> một vị mới.</em></h1>
+<p class="sub">Những quán đã ghé. Những nơi muốn thử.<br>Cất lại ở đây, cho lần hẹn tiếp theo.</p></div>
+<div class="hero-aside"><span class="aside-icon" aria-hidden="true">↗</span><div>Chưa biết ăn gì?<br><a href="#discover" id="heroRandom">Để sổ chọn giúp bạn</a></div></div>
+</header>
+<div class="categories" aria-label="Khám phá theo ẩm thực">
+<button data-category="" class="category active" aria-pressed="true"><span aria-hidden="true">✳</span>Tất cả</button>
+<button data-category="Việt" class="category" aria-pressed="false"><span aria-hidden="true">🍜</span>Món Việt</button>
+<button data-category="Nhật" class="category" aria-pressed="false"><span aria-hidden="true">🍣</span>Món Nhật</button>
+<button data-category="Thái" class="category" aria-pressed="false"><span aria-hidden="true">🍲</span>Món Thái</button>
+<button data-category="Hoa" class="category" aria-pressed="false"><span aria-hidden="true">🥟</span>Món Hoa</button>
+<button data-category="Ý" class="category" aria-pressed="false"><span aria-hidden="true">🍕</span>Món Ý</button>
+<button data-category="Hải sản" class="category" aria-pressed="false"><span aria-hidden="true">🦐</span>Hải sản</button>
+<button data-category="Âu / Bistro" class="category" aria-pressed="false"><span aria-hidden="true">🍽️</span>Bistro</button>
 </div>
-
+<section id="inspiration" aria-labelledby="inspire-title"><h2 class="section-title" id="inspire-title">Một chút cảm hứng. <span>Cho chiếc bụng đói.</span></h2>
+<div class="features">
+<a class="feature fresh" href="#discover" data-preset="muonthu"><img src="assets/fresh.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>ĐỔI VỊ HÔM NAY</p><h3>Thử một nơi mới.<br>Biết đâu lại mê.</h3><span>Khám phá quán muốn thử ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
+<a class="feature dinner" href="#discover" data-preset="dadi"><img src="assets/dinner.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>HẸN NHAU ĐI ĂN</p><h3>Quán quen.<br>Câu chuyện mới.</h3><span>Xem những nơi đã ghé ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
+<a class="feature pizza" href="#discover" data-food="Ý"><img src="assets/pizza.jpg" alt="" width="1000" height="667"><div class="feature-copy"><p>MỘT CHÚT NƯỚC Ý</p><h3>Thêm một miếng.<br>Thêm một niềm vui.</h3><span>Khám phá món Ý ↗</span></div><small>Ảnh món ăn minh hoạ</small></a>
+</div></section>
+<section id="discover" aria-labelledby="list-title"><h2 class="section-title" id="list-title">Những địa chỉ đáng nhớ. <span>Chọn theo cách của bạn.</span></h2><p class="tally" id="tally" aria-live="polite"></p></section>
+</div>
 <div class="bar">
   <div class="wrap bar-in">
     <div class="search">
@@ -226,8 +260,7 @@ footer{padding-block:8px 36px; font-size:12.5px; color:var(--ink-faint); border-
 <div class="wrap">
   <p class="note" id="note" hidden></p>
   <div class="grid" id="grid"></div>
-  <footer>Danh sách quán ăn công khai. Kiểm tra thông tin có nhãn “cần xác minh” trước khi đến.</footer>
-</div>
+  </div></main><footer id="about"><div class="footer-brand">sổ quán<span>●</span></div><p>Một cuốn sổ dành cho những cuộc hẹn ăn uống ở Sài Gòn.</p><p>Danh sách quán ăn công khai. Kiểm tra thông tin có nhãn “cần xác minh” trước khi đến.</p><p class="credits">Ảnh minh hoạ: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p></footer>
 
 <script>
 /* ============================================================
@@ -384,6 +417,7 @@ function veMotQuan(r){
 }
 
 function ve(){
+  syncCategories();
   veTally();
   var g = $("#grid");
   var ds = locRa();
@@ -416,6 +450,21 @@ $("#bRandom").onclick = function(){
 };
 items = [{"ten": "An Của Saigon", "loai": "Hải sản", "trangThai": "muonthu", "diaChi": "196 Lê Thánh Tôn, P. Bến Thành", "khu": "Quận 1", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách"], "ghiChu": "Hải sản Việt, nước chấm nhà làm. Mở 11:00–22:00 mỗi ngày. Tầng 1 ngồi được 20–30 khách. Web: ancuasaigon.vn", "taoLuc": 1790840000000, "id": "an-cua-saigon"}, {"ten": "elgin", "loai": "Âu / Bistro", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Ba bảng Michelin 2023 · 2024 · 2025 treo ngoài cửa. Bếp mở, quầy rượu vang, cầu thang lên gác. Chưa ghi địa chỉ.", "taoLuc": 1790839000000, "id": "elgin"}, {"ten": "Bờm", "loai": "Việt", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Michelin", "Tiếp khách"], "ghiChu": "Michelin 2023 · 2024 · 2025. Bảng trước cửa ghi mở 11:00–23:00, happy hour 16:00–19:00. Chưa ghi địa chỉ.", "taoLuc": 1790838000000, "id": "bom"}, {"ten": "Khap Khap Thai Bistro", "loai": "Thái", "trangThai": "dadi", "diaChi": "20 Nguyễn Thị Minh Khai / 46 Ter Võ Văn Tần / 52 Xuân Thủy", "khu": "TP.HCM", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Chuỗi ba chi nhánh, mở khoảng 10:00–22:00. Chưa rõ hôm đó ăn chi nhánh nào — đi lại thì ghi rõ số nhà.", "taoLuc": 1790837000000, "id": "khap-khap"}, {"ten": "Kohaku Sushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "Tầng 5, Vạn Hạnh Mall — 11 Sư Vạn Hạnh", "khu": "Quận 10", "mon": "Cơm lươn Unagi Don", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Đậu ô tô"], "ghiChu": "Kohaku có nhiều chi nhánh — Vạn Hạnh Mall mới là phỏng đoán, chưa chắc.", "taoLuc": 1790836000000, "id": "kohaku-sushi"}, {"ten": "Sushi Hokkaido Sachi — Thảo Điền", "loai": "Nhật", "trangThai": "dadi", "diaChi": "109 Võ Nguyên Giáp, P. An Khánh", "khu": "TP Thủ Đức", "mon": "", "gia": null, "diem": null, "canXacMinh": false, "tags": ["Tiếp khách", "Đậu ô tô"], "ghiChu": "Chi nhánh Sachi Garden. Nhận ra nhờ bảng “Mực Bơi”, hồ hải sản và không gian tông đen.", "taoLuc": 1790835000000, "id": "sushi-hokkaido-sachi"}, {"ten": "Taco Del Sol", "loai": "Mexico", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Ngoài trời", "Nhóm đông"], "ghiChu": "Sân ngoài trời, tường cam, đài phun nước và tượng skeleton mariachi. Hợp ngồi tối, nhóm đông. Chưa ghi địa chỉ.", "taoLuc": 1790834000000, "id": "taco-del-sol"}, {"ten": "Pazzi", "loai": "Ý", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Steak + khoai chiên, sốt tiêu", "gia": null, "diem": null, "canXacMinh": true, "tags": [], "ghiChu": "Menu bìa giấy, lời chào tiếng Việt “Cảm ơn bạn đã ghé Pazzi”. Bàn bếp mặt đá. Chưa ghi địa chỉ.", "taoLuc": 1790833000000, "id": "pazzi"}, {"ten": "iSushi", "loai": "Nhật", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "Sushi cá hồi cuộn sốt cay", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh"], "ghiChu": "Menu à la carte bìa da. Chưa rõ chi nhánh.", "taoLuc": 1790832000000, "id": "isushi"}, {"ten": "Man Tang Gi (满堂記)", "loai": "Hoa", "trangThai": "dadi", "diaChi": "", "khu": "", "mon": "", "gia": null, "diem": null, "canXacMinh": true, "tags": ["Máy lạnh", "Tiếp khách"], "ghiChu": "Quán Hoa, đèn lồng vải, ghế booth ngăn riêng — kín đáo, hợp tiếp khách. Chưa ghi địa chỉ.", "taoLuc": 1790831000000, "id": "man-tang-gi"}];
 ve();
+function syncCategories(){
+  document.querySelectorAll('[data-category]').forEach(function(b){
+    var active=b.dataset.category===$("#fLoai").value;
+    b.classList.toggle('active',active); b.setAttribute('aria-pressed',String(active));
+  });
+}
+document.querySelectorAll('[data-category]').forEach(function(b){b.onclick=function(){
+  $("#fLoai").value=b.dataset.category; $("#fTT").value=''; $("#q").value=''; nhanManh=null;syncCategories();ve();
+  document.getElementById('discover').scrollIntoView({behavior:'smooth'});
+};});
+$("#fLoai").addEventListener('change',syncCategories);
+document.querySelectorAll('[data-preset], [data-food]').forEach(function(a){a.onclick=function(){
+  $("#q").value=''; $("#fLoai").value=a.dataset.food||''; $("#fTT").value=a.dataset.preset||'';nhanManh=null;syncCategories();ve();
+};});
+$("#heroRandom").onclick=function(e){e.preventDefault();$("#q").value='';$("#fLoai").value='';$("#fTT").value='';syncCategories();$("#bRandom").onclick();};
 </script>
 </body>
 </html>
