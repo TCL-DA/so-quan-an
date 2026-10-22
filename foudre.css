@@ -146,6 +146,7 @@ dialog::backdrop{background:rgba(0,82,45,.6); backdrop-filter:none}
 #detailTitle{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--magenta);
   font-size:clamp(44px,6vw,72px); line-height:1.15; letter-spacing:0}
 .detail-warning{background:var(--blush); color:var(--forest)}
+dialog .eyebrow{text-transform:uppercase; color:var(--forest)}
 .detail-facts h3,.detail-notes h3{color:var(--magenta-deep); text-transform:uppercase; letter-spacing:.08em; font-size:12px}
 .detail-facts p,.detail-notes p{color:var(--forest)}
 .detail-notes{border-top:1px solid var(--bubblegum)}
