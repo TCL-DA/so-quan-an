@@ -99,7 +99,7 @@
 @keyframes wheelSpinStart{from{transform:rotate(0)}to{transform:rotate(22deg)}}
 @keyframes wheelTick{0%,100%{opacity:.5}50%{opacity:.85}}
 @keyframes wheelSettle{0%{transform:rotate(2.5deg)}55%{transform:rotate(-1.4deg)}100%{transform:rotate(0)}}
-@keyframes wheelGlowWin{0%{box-shadow:0 0 0 0 rgba(185,17,44,.45)}100%{box-shadow:0 0 0 26px rgba(185,17,44,0)}}
+@keyframes wheelGlowWin{0%{box-shadow:0 0 0 0 rgba(219,60,138,.45)}100%{box-shadow:0 0 0 26px rgba(219,60,138,0)}}
 @keyframes resultReveal{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes resultKicker{from{opacity:0;letter-spacing:.32em}to{opacity:1;letter-spacing:.14em}}
 @keyframes resultName{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -249,11 +249,13 @@
 /* --- vòng quay --- */
 .anim-ready .wheel-intro{animation:wheelIntroRise 520ms var(--e-mem) both}
 .anim-ready .wheel-disc{animation:wheelDiscIn 680ms var(--e-mem) .1s both}
-.wheel-halo{animation:wheelHaloPulse 3.2s ease-in-out infinite}
+/* Hiệu ứng thở đặt trên vòng viền ::after, KHÔNG trên .wheel-halo: khối này chứa cả đĩa và nút QUAY,
+   từng làm cả vòng quay mờ còn 34–62% suốt từ 01/10/2026. */
+.wheel-halo::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid currentColor;pointer-events:none;opacity:.34;animation:wheelHaloPulse 3.2s ease-in-out infinite}
 .wheel-pointer{transform-origin:50% 14%}
 .wheel-stage.spinning .wheel-pointer{animation:wheelPointerWobble 220ms ease-in-out infinite}
 .wheel-stage.starting .wheel-disc{animation:wheelSpinStart 260ms var(--e-ra)}
-.wheel-stage.spinning .wheel-halo{animation:wheelTick 180ms ease-in-out infinite}
+.wheel-stage.spinning .wheel-halo::after{animation:wheelTick 180ms ease-in-out infinite}
 .wheel-stage.settled .wheel-disc{animation:wheelSettle 520ms var(--e-nay)}
 .wheel-stage.settled .wheel-halo{animation:wheelGlowWin 900ms var(--e-ra)}
 .wheel-result:not(:empty){animation:resultReveal 460ms var(--e-mem)}

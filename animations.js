@@ -131,7 +131,7 @@
   });
 
   /* --- 5. Bắn giấy màu khi chốt được quán --- */
-  var mau = ["#b9112c", "#8c6116", "#1a6b4e", "#365e70", "#965025", "#74466c"];
+  var mau = ["#db3c8a", "#f29ebd", "#00522d", "#fce5df", "#e878b2", "#d1cfe4"];
   function banGiay() {
     var n = window.innerWidth < 560 ? 16 : 28;
     for (var i = 0; i < n; i++) {
