@@ -509,6 +509,7 @@
     return null;
   }
 
+  var luotVe = 0;
   function theoDoi() {
     var o = document.querySelector("#wheelResult");
     if (!o || !window.MutationObserver) return;
@@ -519,7 +520,11 @@
       var w = window.wheelWinner;
       var r = (w && w.ten) ? w : timQuan(ten);
       if (!r) return;
-      hienTem(r, (window.wheelMode === "dishes") ? ten : "");
+      /* Vẽ tem tốn ~50–70 ms (ảnh + QR + canvas). Chờ vòng quay nảy xong rồi mới vẽ,
+         không thì khựng đúng lúc chốt quán. Chỉ vẽ cho lần quay mới nhất. */
+      var luot = ++luotVe, mon = (window.wheelMode === "dishes") ? ten : "";
+      var ve = function () { if (luot === luotVe) hienTem(r, mon); };
+      if (window.requestIdleCallback) requestIdleCallback(ve, { timeout: 600 }); else setTimeout(ve, 550);
     }).observe(o, { childList: true, subtree: true, characterData: true });
   }
 

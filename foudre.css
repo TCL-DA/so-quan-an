@@ -154,6 +154,17 @@ dialog .eyebrow{text-transform:uppercase; color:var(--forest)}
 .detail-map:hover{background:var(--magenta)}
 .photo-source,.photo-source a{color:var(--forest)}
 .restaurant-gallery img{border-radius:20px}
+/* Tem: bỏ drop-shadow blur 30px — bản gốc cấm bóng, và làm mờ cả canvas tem khi đang chạy hiệu ứng
+   vào là tác vụ nặng nhất trang (PrePaint 62 ms, đo 22/10/2026). Viền răng cưa đã đủ tách nền. */
+.tem-boc{filter:none}
+
+/* Mượt 120 Hz (đo 22/10/2026):
+   - Hai dãy cuộn ngang tách lớp riêng: không có lớp thì mỗi khung lướt vẽ lại cả #document (~150 lần/giây).
+   - Ô kết quả vòng quay giữ chiều cao cố định: đổi "Chốt kèo…" ↔ "Đang quay" làm trang dưới xô lên,
+     vẽ lại cả trang (kể cả tiêu đề chữ khổng lồ) đúng lúc bấm QUAY. */
+#grid,#inspirationRail{will-change:transform}
+.wheel-result{min-height:236px}
+@media(max-width:700px){.wheel-result{min-height:200px}}
 
 /* Chân trang + thông báo */
 footer{color:var(--forest); border-top:1px solid var(--bubblegum)}

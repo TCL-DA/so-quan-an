@@ -69,8 +69,9 @@
 @keyframes chipThu{0%,100%{opacity:1}50%{opacity:.62}}
 @keyframes chipVerifyMarch{to{transform:translateX(16px)}}
 @keyframes michelinShine{0%{transform:translateX(-160%)}60%,100%{transform:translateX(260%)}}
-@keyframes dotPulseGreen{0%{box-shadow:0 0 0 0 rgba(26,107,78,.45)}100%{box-shadow:0 0 0 7px rgba(26,107,78,0)}}
-@keyframes dotPulseAmber{0%{box-shadow:0 0 0 0 rgba(140,97,22,.45)}100%{box-shadow:0 0 0 7px rgba(140,97,22,0)}}
+/* Vòng lan bằng transform + opacity trên ::after (chạy trên compositor). Bản box-shadow cũ bắt vẽ lại
+   chấm + nền tài liệu mỗi khung hình: 281 lần vẽ / 5 s khi đang quay vòng (đo 22/10/2026). */
+@keyframes dotRing{0%{transform:scale(1);opacity:.45}100%{transform:scale(3);opacity:0}}
 @keyframes tagHover{to{transform:translateY(-2px)}}
 @keyframes tagStagger{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes eyebrowSlide{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
@@ -226,8 +227,9 @@
 .chip.michelin::after,.tags span.michelin::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:55%;background:linear-gradient(100deg,transparent,rgba(185,17,44,.3),transparent);animation:michelinShine 4.2s var(--e-ra) infinite;will-change:transform}
 .card-eyebrow{animation:eyebrowSlide var(--t-vua) var(--e-mem) both}
 .quan:hover .card-eyebrow{animation:chipGlow 1.2s ease-in-out}
-.anim-ready .dot.di{animation:dotPulseGreen 2.4s var(--e-ra) infinite}
-.anim-ready .dot.thu{animation:dotPulseAmber 2.4s var(--e-ra) .6s infinite}
+.dot.di,.dot.thu{position:relative}
+.anim-ready .dot.di::after,.anim-ready .dot.thu::after{content:"";position:absolute;inset:0;border-radius:50%;background:inherit;pointer-events:none;animation:dotRing 2.4s var(--e-ra) infinite}
+.anim-ready .dot.thu::after{animation-delay:.6s}
 .detail-facts .chip{animation:chipFlip 320ms var(--e-mem) both}
 
 /* --- thanh lọc --- */
