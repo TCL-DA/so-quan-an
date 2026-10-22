@@ -322,5 +322,7 @@ dialog[open]::backdrop{animation:dialogFade var(--t-vua) linear}
    Lớp .ngoai-man do animations.js gắn; mặc định KHÔNG có lớp này,
    nên script hỏng thì trang vẫn chạy đủ hiệu ứng như cũ.
    ------------------------------------------------------------ */
-.ngoai-man,.ngoai-man *{animation-play-state:paused!important}
-html.tab-an *{animation-play-state:paused!important}
+/* Phải kể cả ::before/::after — "*" không bắt phần tử giả, hiệu ứng lấp lánh của ô "chưa có ảnh"
+   (.photo-missing::before) từng chạy mãi ngoài màn hình khi sổ lên 34 quán. */
+.ngoai-man,.ngoai-man *,.ngoai-man::before,.ngoai-man::after,.ngoai-man *::before,.ngoai-man *::after{animation-play-state:paused!important}
+html.tab-an *,html.tab-an *::before,html.tab-an *::after{animation-play-state:paused!important}

@@ -1,0 +1,166 @@
+/* ============================================================
+   foudre.css — giao diện "Agence Foudre" (Refero Styles):
+   trang tạp chí, nền kem, tiêu đề hẹp cực đậm màu son hồng,
+   chữ thường xanh rừng, phẳng (không bóng, không gradient, không kính mờ).
+   Nạp SAU CÙNG để phủ lên lớp gốc + lớp kiểu Apple trong index.html.
+   Bỏ dòng <link href="foudre.css"> là trang về giao diện cũ.
+
+   Lệch có chủ ý so với bản gốc:
+   - Font Beni / Clash Grotesk không có dấu tiếng Việt → Anton (tiêu đề) + Be Vietnam Pro (chữ thường).
+   - Giãn dòng tiêu đề 0.70 làm dấu tiếng Việt đè dòng trên → 1.15 (đã thử 0.9 và 1.02 vẫn đè — Anton có dấu cao).
+   - Chữ phụ của tiêu đề dùng xanh rừng thay hồng nhạt #f29ebd (hồng nhạt trên nền kem không đọc được).
+   ============================================================ */
+:root,:root[data-theme="dark"]{
+  --magenta:#db3c8a; --forest:#00522d; --blush:#fce5df; --chalk:#fff8f6;
+  --bubblegum:#f29ebd; --cotton:#e878b2; --lilac:#d1cfe4; --forest-soft:#2f6b4d;
+  --paper:var(--chalk); --card:var(--blush); --card-2:var(--chalk);
+  --ink:var(--forest); --ink-soft:var(--forest-soft); --ink-faint:var(--forest-soft);
+  --line:var(--bubblegum); --line-soft:var(--blush);
+  --accent:var(--magenta); --accent-ink:var(--magenta); --accent-soft:var(--blush);
+  --brass:var(--forest); --brass-soft:var(--blush); --ok:var(--forest); --ok-soft:#dcefe4;
+  --shadow:none;
+  --f-display:"Anton","Arial Narrow",Impact,sans-serif;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+html,body{background:var(--chalk); color:var(--forest)}
+body{font-family:var(--f-body)}
+a{color:var(--forest)}
+a:hover{text-decoration-color:var(--magenta)}
+:is(input,select,textarea):focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--magenta); outline-offset:2px}
+
+/* Thanh trên */
+.navigation{background:var(--chalk)}
+.brand,.footer-brand{font-family:var(--f-display); font-weight:400; letter-spacing:0; font-size:28px; color:var(--magenta); text-transform:uppercase}
+.brand span,.footer-brand span{color:var(--forest)}
+.nav-links a,.nav-city{color:var(--forest); font-weight:500; font-size:13px}
+.announcement{background:var(--blush); color:var(--forest); font-weight:500}
+.announcement a{color:var(--magenta); font-weight:700}
+
+/* Đầu trang — tiêu đề kiểu bìa tạp chí */
+header.top{padding:64px 0 48px; align-items:flex-end}
+.eyebrow{color:var(--forest); font-weight:600; letter-spacing:.14em}
+.mark{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--magenta);
+  font-size:clamp(64px,10.5vw,150px); line-height:1.22; letter-spacing:-.005em; margin-top:.3em}
+.mark em{color:var(--forest)}
+.sub{color:var(--forest); font-size:19px; line-height:1.35; max-width:60ch}
+.hero-visual>img{border-radius:20px; box-shadow:none}
+.hero-visual>a{background:var(--magenta); color:var(--chalk); border:0; border-radius:20px; box-shadow:none}
+.hero-visual>a span{color:var(--chalk)}
+.hero-visual strong{color:var(--chalk); font-family:var(--f-display); font-weight:400; font-size:26px; text-transform:uppercase; letter-spacing:0}
+.hero-badge{color:var(--blush)!important; font-weight:700}
+.hero-visual>a:focus-visible{outline:3px solid var(--forest)}
+
+/* Nhóm ẩm thực — nhãn tròn */
+.categories{gap:10px; justify-content:flex-start}
+.category{flex:0 0 auto; flex-direction:row; gap:8px; padding:9px 16px; border:0; border-radius:9999px;
+  background:var(--blush); color:var(--forest); font-weight:600}
+.category span{width:auto; height:auto; font-size:20px}
+.category:hover span{transform:none}
+.category.active{background:var(--magenta); color:var(--chalk); border:0}
+
+/* Tiêu đề mục */
+.section-title{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--magenta);
+  font-size:clamp(44px,6.4vw,94px); line-height:1.15; letter-spacing:0; margin-bottom:32px}
+.section-title span{color:var(--forest)}
+
+/* Dãy cảm hứng — ảnh phẳng, lớp phủ một màu (không gradient) */
+.feature{border-radius:20px; box-shadow:none}
+.feature:hover{box-shadow:none}
+.feature:after{background:rgba(0,40,22,.42)}
+.feature-copy p{color:var(--blush); font-weight:700; letter-spacing:.14em}
+.feature h3{font-family:var(--f-display); font-weight:400; text-transform:uppercase; font-size:44px; line-height:1.15; letter-spacing:0; color:var(--chalk)}
+.feature-copy>span{color:var(--chalk); font-weight:600}
+
+/* Nút tròn hồng (mũi tên cuộn) */
+.rail-arrow{width:50px; height:50px; background:var(--magenta); color:var(--chalk); font-size:30px}
+.rail-arrow:hover:not(:disabled){background:var(--forest)}
+
+/* Thanh lọc */
+.bar,.bar.stuck{background:var(--chalk); backdrop-filter:none; border-bottom:1px solid var(--blush); box-shadow:none!important}
+input[type=search],input[type=text],input[type=number],input[type=url],select,textarea{
+  background:#fff; border:1px solid var(--forest); border-radius:10px; color:var(--forest)}
+.search svg{color:var(--forest)}
+input::placeholder{color:var(--forest-soft)}
+.btn{border-radius:10px; font-weight:600}
+.btn.ghost,.btn.primary{background:var(--forest); border-color:var(--forest); color:var(--chalk)}
+.btn.ghost:hover,.btn.primary:hover{background:var(--magenta); border-color:var(--magenta); filter:none}
+.tally,.result-summary{color:var(--forest)}
+.dot.di{background:var(--forest)} .dot.thu{background:var(--magenta)}
+
+/* Thẻ quán */
+.quan{background:var(--blush); border-radius:20px; box-shadow:none}
+.quan:hover{box-shadow:none}
+.quan.hit{box-shadow:none; outline:3px solid var(--magenta); outline-offset:2px}
+.card-open{border-radius:20px}
+.card-open:focus-visible{outline:3px solid var(--magenta)}
+.card-eyebrow{color:var(--forest); font-weight:700; letter-spacing:.12em}
+.card-open .ten,.ten{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--magenta);
+  font-size:34px; line-height:1.15; letter-spacing:0}
+.card-location,.card-note,.card-bottom{color:var(--forest)}
+.plus{background:var(--magenta); color:var(--chalk)}
+.chip{background:var(--chalk); color:var(--forest); border-radius:9999px; font-weight:600}
+.chip.di{background:var(--forest); color:var(--chalk)}
+.chip.thu{background:var(--magenta); color:var(--chalk)}
+.chip.mich{background:var(--chalk); color:var(--magenta)}
+.chip.cv{color:var(--forest-soft)}
+.mon{background:var(--chalk); border-left:0}
+.mon b{color:var(--magenta)}
+.restaurant-photo{background:var(--lilac)}
+.restaurant-photo>span{background:var(--forest); color:var(--chalk)}
+.photo-missing{background:var(--cotton); color:var(--chalk); text-shadow:none}
+.photo-missing::after{display:none}
+.photo-missing>span{font-family:var(--f-display); font-weight:400; font-size:38px}
+.state{background:var(--blush); border:0; border-radius:20px}
+.state h2{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--magenta); font-size:40px}
+
+/* Vòng quay — khối xanh rừng */
+.wheel-section{background:var(--forest); color:var(--chalk); border-radius:25px}
+.wheel-story .eyebrow{color:var(--bubblegum)}
+.wheel-story h2{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--chalk);
+  font-size:clamp(46px,5.4vw,80px); line-height:1.15; letter-spacing:0}
+.wheel-story h2 span{color:var(--bubblegum)}
+.wheel-intro,.wheel-count,.wheel-instruction,.wheel-options label,.wheel-result>p{color:var(--blush)}
+.wheel-options summary{color:var(--bubblegum)}
+.wheel-options input{accent-color:var(--magenta)}
+.wheel-modes{background:rgba(255,248,246,.1)}
+.wheel-modes button{color:var(--blush)}
+.wheel-modes button[aria-pressed=true]{background:var(--magenta); color:var(--chalk)}
+.result-kicker{color:var(--bubblegum)}
+.wheel-result{border-top:1px solid rgba(252,229,223,.3)}
+.wheel-result h3{font-family:var(--f-display); font-weight:400; text-transform:uppercase; font-size:40px; line-height:1.15; letter-spacing:0; color:var(--chalk)}
+.wheel-detail{background:var(--magenta); color:var(--chalk); border-radius:10px; font-weight:700}
+.wheel-halo{background:transparent; box-shadow:none; border:3px solid var(--chalk)}
+.wheel-pointer{background:var(--chalk); filter:none}
+.spin-button{background:var(--chalk); color:var(--forest); border:6px solid var(--magenta); box-shadow:none; font-weight:800}
+.spin-button span{color:var(--magenta)}
+
+/* Hộp chi tiết quán */
+dialog{background:var(--chalk); color:var(--forest); border-radius:25px; box-shadow:none}
+dialog::backdrop{background:rgba(0,82,45,.6); backdrop-filter:none}
+.dialog-close{background:var(--magenta); color:var(--chalk); width:50px; height:50px; font-size:28px}
+#detailTitle{font-family:var(--f-display); font-weight:400; text-transform:uppercase; color:var(--magenta);
+  font-size:clamp(44px,6vw,72px); line-height:1.15; letter-spacing:0}
+.detail-warning{background:var(--blush); color:var(--forest)}
+.detail-facts h3,.detail-notes h3{color:var(--magenta); text-transform:uppercase; letter-spacing:.08em; font-size:12px}
+.detail-facts p,.detail-notes p{color:var(--forest)}
+.detail-notes{border-top:1px solid var(--bubblegum)}
+.detail-map{background:var(--forest); color:var(--chalk); border-radius:10px; font-weight:700}
+.detail-map:hover{background:var(--magenta)}
+.photo-source,.photo-source a{color:var(--forest)}
+.restaurant-gallery img{border-radius:20px}
+
+/* Chân trang + thông báo */
+footer{color:var(--forest); border-top:1px solid var(--bubblegum)}
+.credits a{color:var(--forest)}
+.toast{background:var(--forest); color:var(--chalk); box-shadow:none; border-radius:10px}
+.note{background:var(--blush); color:var(--forest)}
+
+@media(max-width:700px){
+  .mark{font-size:64px}
+  .section-title{font-size:46px}
+  .feature h3{font-size:38px}
+  .card-open .ten{font-size:30px}
+  .wheel-story h2{font-size:48px}
+  #detailTitle{font-size:44px}
+}
